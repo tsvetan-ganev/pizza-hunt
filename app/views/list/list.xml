@@ -1,0 +1,14 @@
+<Page loaded="pageLoaded">
+	<ListView id="pizzaList" items="{{ pizzas }}">
+		<ListView.itemTemplate>
+			<StackLayout style="padding: 20;" >
+				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
+				<Label text="{{ name }}" cssClass="centered text-huge" />
+				<Label text="{{ nett }}" cssClass="centered text-big"  />
+				<Label text="{{ '$' + price }}" cssClass="centered text-big" />
+				<Label text="{{ description }}" textWrap="true" cssClass="centered text-small"/>
+				<Button text="Add to cart" width="200"/>
+			</StackLayout>
+		</ListView.itemTemplate>
+	</ListView>
+</Page>

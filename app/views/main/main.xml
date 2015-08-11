@@ -1,0 +1,7 @@
+<Page>
+	<StackLayout>
+		<Label id="title" text="Welcome to Pizza Hunt!" />
+		<Button text="Click to subscribe" tap="subscribe" />
+		<Label id="subscribersCount"/>
+	</StackLayout>
+</Page>

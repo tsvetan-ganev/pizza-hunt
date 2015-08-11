@@ -1,0 +1,20 @@
+﻿.text-huge {
+	font-size: 36;
+}
+
+.text-big {
+	font-size: 28;
+}
+
+.text-normal {
+	font-size: 18;
+}
+
+.text-small {
+	font-size: 14;
+}
+
+.centered {
+	horizontal-align: center;
+	text-align: center;
+}
