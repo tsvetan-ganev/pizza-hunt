@@ -1,4 +1,19 @@
-﻿.text-huge {
+﻿/* Imports platform specific CSS */
+@import { url('~/platform.css') };
+
+/* Native components */
+TextField {
+	margin: 10;
+	padding: 10;
+}
+
+Button {
+	margin: 10;
+	padding: 10;
+}
+
+/* Text */
+.text-huge {
 	font-size: 36;
 }
 
@@ -14,6 +29,7 @@
 	font-size: 14;
 }
 
+/* Positioning */
 .centered {
 	horizontal-align: center;
 	text-align: center;

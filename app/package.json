@@ -1,14 +1,17 @@
 {
-	"name": "pizza-hunt",
-	"main": "app.js",
-	"version": "1.2.0",
-	"author": "Tsvetan Ganev",
-	"description": "NativeScript sample project.",
-	"license": "BSD",
-	"keywords": [
-		"telerik",
-		"mobile",
-		"nativescript",
-		"{N}"
-	]
+  "name": "pizza-hunt",
+  "main": "app.js",
+  "version": "1.2.0",
+  "author": "Tsvetan Ganev",
+  "description": "NativeScript sample project.",
+  "license": "BSD",
+  "keywords": [
+    "telerik",
+    "mobile",
+    "nativescript",
+    "{N}"
+  ],
+  "dependencies": {
+    "mongodb": "^2.0.40"
+  }
 }

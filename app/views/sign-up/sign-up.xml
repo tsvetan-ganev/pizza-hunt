@@ -1,0 +1,10 @@
+<Page loaded="init">
+	<StackLayout>
+		<Label text="Registration form" textWrap="true" cssClass="text-huge centered" />
+		<TextField hint="First Name" text="{{ firstName }}" />
+		<TextField hint="Last Name" text="{{ lastName }}" />
+		<TextField hint="Email Address" text="{{ email }}" keyboardType="email" />
+		<TextField hint="Phone Number" text="{{ phone }}" keyboardType="number" />
+		<Button text="Register" tap="register" />
+	</StackLayout>
+</Page>
