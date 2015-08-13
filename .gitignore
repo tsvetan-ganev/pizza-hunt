@@ -2,3 +2,6 @@ lib/
 node_modules/
 platforms/
 tmp/
+app/typings/
+app/jsconfig.json
+app/tsd.json

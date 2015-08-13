@@ -1,5 +1,5 @@
-<Page loaded="pageLoaded">
-	<ListView id="pizzaList" items="{{ pizzas }}">
+<Page navigatedTo="navigatedTo">
+	<ListView items="{{ pizzas }}">
 		<ListView.itemTemplate>
 			<StackLayout style="padding: 20;" >
 				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />

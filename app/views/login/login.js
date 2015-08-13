@@ -1,11 +1,10 @@
 var dialogs = require('ui/dialogs'),
 	frameModule = require('ui/frame'),
-	UserViewModel = require('../../shared/models/user'),
-	observableModule = require("data/observable");
+	UserViewModel = require('../../shared/view-models/user');
 
 var user = UserViewModel({
-    email: "user@gmail.com",
-    password: '123456'
+    email: 'ivan@gmail.com',
+    password: 'ivanivanov'
 });
 
 exports.init = function(args) {
@@ -13,23 +12,8 @@ exports.init = function(args) {
     page.bindingContext = user;
 };
 
-exports.sendCredentials = function(args) {
-	var page = args.object;
-	user = page.bindingContext;
-
-	// if(user.get('email') === 'user@gmail.com'
-	// 	&& user.get('password') === '123456') {
-		dialogs.alert({
-			message: 'Successful registration.',
-			okButtonText: 'Continue'
-		}).then(signIn);
-	//} 
-	// else {
-	// 	dialogs.alert({
-	// 		message: 'Wrong account or password.',
-	// 		okButtonText: 'Try again.'
-	// 	});
-	// }
+exports.validateCredentials = function() {
+	user.login(signIn, invalidCredentials);
 };
 
 exports.signUp = function() {
@@ -41,3 +25,10 @@ function signIn () {
 	var topmost = frameModule.topmost();
 	topmost.navigate('./views/list/list');
 };
+
+function invalidCredentials() {
+	dialogs.alert({
+			message: 'Invalid credentials.',
+			okButtonText: 'Try again'
+	});
+}

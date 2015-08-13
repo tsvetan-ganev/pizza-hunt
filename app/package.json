@@ -9,9 +9,7 @@
     "telerik",
     "mobile",
     "nativescript",
-    "{N}"
-  ],
-  "dependencies": {
-    "mongodb": "^2.0.40"
-  }
+    "{N}",
+    "pizza"
+  ]
 }
