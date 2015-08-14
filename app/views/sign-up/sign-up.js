@@ -1,17 +1,16 @@
 var frameModule = require('ui/frame'),
     dialogs = require('ui/dialogs'),
     UserViewModel = require('../../shared/view-models/user'),
-    user = UserViewModel();
+    user = UserViewModel({});
 
 exports.init = function (args) {
     var page = args.object;
+    user.set('email', '');
+    user.set('password', '');
     page.bindingContext = user;
 };
 
 exports.register = function (args) {
-    var page = args.object,
-        user = page.bindingContext;
-        
     user.register(regisiterOnSuccess, registerOnError);
 };
 

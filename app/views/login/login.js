@@ -2,13 +2,12 @@ var dialogs = require('ui/dialogs'),
 	frameModule = require('ui/frame'),
 	UserViewModel = require('../../shared/view-models/user');
 
-var user = UserViewModel({
-    email: 'ivan@gmail.com',
-    password: 'ivanivanov'
-});
+var user = UserViewModel();
 
 exports.init = function(args) {
     var page = args.object;
+    user.set('email', 'ivan@gmail.com');
+    user.set('password', 'ivanivanov');
     page.bindingContext = user;
 };
 
@@ -31,4 +30,4 @@ function invalidCredentials(errorMsg) {
 			message: errorMsg,
 			okButtonText: 'Try again'
 	});
-}
+};

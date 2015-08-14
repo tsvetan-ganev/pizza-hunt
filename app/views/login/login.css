@@ -6,6 +6,7 @@ Button {
 
 TextField {
 	width: 260;
+	text-align: center;
 }
 
 #loginScreen {
@@ -16,7 +17,4 @@ TextField {
 	margin-top: 100;
 }
 
-TextField {
-	text-align: center;
-}
 
