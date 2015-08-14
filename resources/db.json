@@ -57,38 +57,6 @@
       "lastName": "Ilieva",
       "phone": "0888123456",
       "password": "mariailieva"
-    },
-    {
-      "email": "sali@abv.bg",
-      "firstName": "Sali",
-      "lastName": "Brusli",
-      "phone": "0887878653",
-      "password": "salito",
-      "id": "f493e373-8c31-40f8-a265-1f17a5051fa1"
-    },
-    {
-      "email": "ivan1@gmail.com",
-      "firstName": "Ivan",
-      "lastName": "Ivanov",
-      "phone": "0878784234",
-      "password": "salioka",
-      "id": "05f0f6e8-4756-4a8c-84da-ae01cf103d0c"
-    },
-    {
-      "email": "peter1@gmail.com",
-      "firstName": "Pesho",
-      "lastName": "Peshev",
-      "phone": "0878784234",
-      "password": "peshodobriq",
-      "id": "2bd0958e-1e9b-4e5c-bbf4-dfe933e86390"
-    },
-    {
-      "email": "brusli@abv.bg",
-      "firstName": "Bruce",
-      "lastName": "Lee",
-      "phone": "0878787878",
-      "password": "bruslito",
-      "id": "f876b86b-b4ce-4a00-b04a-c3d20a3128f1"
     }
   ]
 }
