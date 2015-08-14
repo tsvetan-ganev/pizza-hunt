@@ -1,9 +1,13 @@
 <Page loaded="init">
-	<StackLayout>
+	<StackLayout id="loginScreen">
 		<TextField hint="Email address" text="{{ email }}" keyboardType="email" cssClass="text-normal" />
 		<TextField hint="Password" text="{{ password }}" secure="true"  cssClass="text-normal" />
 		<Button text="Sign in" tap="validateCredentials" />
-		<Label text="Don't have an account yet?" textWrap="true" cssClass="centered" />
-		<Button text="Sign up" tap="signUp" />
+
+		<StackLayout id="sign-up">
+			<Label text="Don't have an account yet?" textWrap="true" cssClass="centered" />
+			<Button text="Sign up" tap="signUp" />
+		</StackLayout>
+
 	</StackLayout>
 </Page>

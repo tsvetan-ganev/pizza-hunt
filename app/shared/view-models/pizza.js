@@ -1,9 +1,9 @@
 var observableModule = require('data/observable');
 
-function Pizza(options) {
+function PizzaViewModel(options) {
 	options = options || {};
 
-	var viewModel = new observableModule.Observable({
+	var pizza = new observableModule.Observable({
 		name: options.name || 'Pizza',
 		description: options.description || 'No description.',
 		price: options.price || 0.00,
@@ -12,7 +12,7 @@ function Pizza(options) {
 		picUrl: options.picUrl || 'res://default_pizza'
 	});
 
-	return viewModel;
+	return pizza;
 }
 
-module.exports = Pizza;
+module.exports = PizzaViewModel;

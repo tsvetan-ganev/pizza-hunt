@@ -3,10 +3,10 @@
 		<ListView.itemTemplate>
 			<StackLayout style="padding: 20;" >
 				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
-				<Label text="{{ name }}" cssClass="centered text-huge" />
-				<Label text="{{ nett }}" cssClass="centered text-normal"  />
-				<Label text="{{ '$' + price }}" cssClass="centered text-normal" />
-				<Label text="{{ description }}" textWrap="true" cssClass="centered text-small"/>
+				<Label text="{{ name }}" cssClass="text-centered text-huge" />
+				<Label text="{{ nett }}" cssClass="text-centered text-normal"  />
+				<Label text="{{ '$' + price }}" cssClass="text-centered text-normal" />
+				<Label text="{{ description }}" textWrap="true" cssClass="text-centered text-small"/>
 				<Button text="Add to cart" width="200"/>
 			</StackLayout>
 		</ListView.itemTemplate>

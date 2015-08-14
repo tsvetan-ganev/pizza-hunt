@@ -1,19 +1,20 @@
 /// <reference path="../../typings/node/node.d.ts" />
 var http = require('http'),
-	observableArrayModule = require('data/observable-array');
+	observableArrayModule = require('data/observable-array'),
+	config = require('../../shared/config');
 
 function PizzaListViewModel(pizzas) {
 	pizzas = pizzas || [];
-	var viewModel = new observableArrayModule.ObservableArray();
+	var pizzaList = new observableArrayModule.ObservableArray(pizzas);
 
 	/**
 	 * Loads a list of pizzas from a fake remote service.
 	 */
-	viewModel.load = function() {
-		http.getJSON('http://10.0.2.2:3000/pizzas')
+	pizzaList.load = function() {
+		http.getJSON(config.remoteServiceUrl + 'pizzas')
 			.then(function(data) {
 				data.forEach(function(pizza) {
-					viewModel.push({
+					pizzaList.push({
 						name: pizza.name,
 						description: pizza.description,
 						price: pizza.price,
@@ -27,13 +28,13 @@ function PizzaListViewModel(pizzas) {
 	/**
 	 * Deletes all items from the observable pizza list.
 	 */
-	viewModel.empty = function() {
-		while (viewModel.length) {
-			viewModel.pop();
+	pizzaList.empty = function() {
+		while (pizzaList.length) {
+			pizzaList.pop();
 		}
 	};
 
-	return viewModel;
+	return pizzaList;
 }
 
 module.exports = PizzaListViewModel;

@@ -26,9 +26,9 @@ function signIn () {
 	topmost.navigate('./views/list/list');
 };
 
-function invalidCredentials() {
+function invalidCredentials(errorMsg) {
 	dialogs.alert({
-			message: 'Invalid credentials.',
+			message: errorMsg,
 			okButtonText: 'Try again'
 	});
 }

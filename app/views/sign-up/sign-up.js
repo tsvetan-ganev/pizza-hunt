@@ -11,15 +11,23 @@ exports.init = function (args) {
 exports.register = function (args) {
     var page = args.object,
         user = page.bindingContext;
+        
+    user.register(regisiterOnSuccess, registerOnError);
+};
 
-    user.register(function () {
+function regisiterOnSuccess() {
+    dialogs.alert({
+        message: 'Registration was successful.',
+        okButtonText: 'Continue'
+    }).then(function () {
         var topmost = frameModule.topmost();
         topmost.navigate('./views/list/list');
-        return;
-    }, function (error) {
-        dialogs.alert({
-            message: error,
-            okButtonText: 'Okay, I will try harder this time.'
-        });
     });
-};
+}
+
+function registerOnError(errorMsg) {
+    dialogs.alert({
+        message: errorMsg,
+        okButtonText: 'Try again'
+    });
+}

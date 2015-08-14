@@ -1,10 +1,12 @@
 <Page loaded="init">
-	<StackLayout>
-		<Label text="Registration form" textWrap="true" cssClass="text-huge centered" />
-		<TextField hint="First Name" text="{{ firstName }}" />
-		<TextField hint="Last Name" text="{{ lastName }}" />
-		<TextField hint="Email Address" text="{{ email }}" keyboardType="email" />
-		<TextField hint="Phone Number" text="{{ phone }}" keyboardType="number" />
+	<StackLayout cssClass="text-centered">
+		<Label text="Credentials" textWrap="true" cssClass="text-huge centered" />
+		<TextField hint="Email address" text="{{ email }}" keyboardType="email" />
+		<TextField hint="Password" text="{{ password }}" secure="true" />
+		<Label text="User details" textWrap="true" cssClass="text-huge" />
+		<TextField hint="First name" text="{{ firstName }}" />
+		<TextField hint="Last name" text="{{ lastName }}" />
+		<TextField hint="Phone number" text="{{ phone }}" keyboardType="number" />
 		<Button text="Register" tap="register" />
 	</StackLayout>
 </Page>

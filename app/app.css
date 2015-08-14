@@ -29,8 +29,12 @@ Button {
 	font-size: 14;
 }
 
+.text-centered {
+	text-align: center;
+}
+
 /* Positioning */
 .centered {
 	horizontal-align: center;
-	text-align: center;
 }
+
