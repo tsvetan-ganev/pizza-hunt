@@ -1,0 +1,23 @@
+<Page navigatedTo="navigatedTo">
+	<ScrollView>
+		<StackLayout id="product-container" cssClass="centered">
+			<StackLayout id="product-details">
+				<Label text="{{ name }}" cssClass="text-centered text-huge" />
+				<Image src="{{ picUrl }}" stretch="none" cssClass="centered" />
+				<StackLayout id="weight" orientation="horizontal" cssClass="centered">
+					<Label text="Weight: " cssClass="text-left text-normal" />
+					<Label text="{{ nett }}" cssClass="text-left text-normal" />
+				</StackLayout>
+				<StackLayout id="price" orientation="horizontal" cssClass="centered">
+					<Label text="Price: " cssClass="text-left text-normal" />
+					<Label text="{{ '$ ' + price }}" cssClass="text-left text-normal" />
+				</StackLayout>
+				<Label text="{{ description }}" cssClass="text-small text-centered" textWrap="true" />
+			</StackLayout>
+			<StackLayout id="buttons" orientation="horizontal" cssClass="centered">
+				<Button text="Back" tap="backToListView" />
+				<Button text="Add to cart" />
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</Page>

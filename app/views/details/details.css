@@ -1,0 +1,11 @@
+@import { url('~/app.css') };
+
+Image {
+	margin-top: 15;
+	margin-bottom: 15;
+}
+
+#product-container {
+	margin-top: 30;
+	padding: 20;
+}
