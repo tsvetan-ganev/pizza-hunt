@@ -46,3 +46,17 @@ Genymotion's emulator: 10.0.3.2
 ```
 
 Inside our application the URL should look like this [http://10.0.2.2:3000/pizzas].
+
+## How to access localhost on your Android device?
+Go to your command prompt and check your IP address:
+```bash
+$ ipconfig
+```
+You should get a result like this:
+```text
+...
+IPv4 Address. . . . . . . . . . . : 192.168.0.106
+...
+```
+
+Go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address.
