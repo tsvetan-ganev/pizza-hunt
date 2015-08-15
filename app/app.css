@@ -33,6 +33,14 @@ Button {
 	text-align: center;
 }
 
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
 /* Positioning */
 .centered {
 	horizontal-align: center;

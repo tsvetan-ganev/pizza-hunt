@@ -1,13 +1,11 @@
 <Page navigatedTo="navigatedTo">
-	<ListView items="{{ pizzas }}">
+	<ListView items="{{ pizzas }}" itemTap="viewDetails" >
 		<ListView.itemTemplate>
-			<StackLayout style="padding: 20;" >
-				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
+			<StackLayout>
 				<Label text="{{ name }}" cssClass="text-centered text-huge" />
-				<Label text="{{ nett }}" cssClass="text-centered text-normal"  />
-				<Label text="{{ '$' + price }}" cssClass="text-centered text-normal" />
-				<Label text="{{ description }}" textWrap="true" cssClass="text-centered text-small"/>
-				<Button text="Add to cart" width="200"/>
+				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
+				<Label text="{{ '$ ' + price }}" cssClass="text-centered text-normal" />
+				<Label text="{{ ingredientsToString() }}" cssClass="text-centered text-small" textWrap="true" />
 			</StackLayout>
 		</ListView.itemTemplate>
 	</ListView>

@@ -1,6 +1,6 @@
 var dialogs = require('ui/dialogs'),
-	frameModule = require('ui/frame'),
-	UserViewModel = require('../../shared/view-models/user');
+    frameModule = require('ui/frame'),
+    UserViewModel = require('../../shared/view-models/user');
 
 var user = UserViewModel();
 
@@ -12,22 +12,22 @@ exports.init = function(args) {
 };
 
 exports.validateCredentials = function() {
-	user.login(signIn, invalidCredentials);
+    user.login(signIn, invalidCredentials);
 };
 
 exports.signUp = function() {
-	var topmost = frameModule.topmost();
-	topmost.navigate('./views/sign-up/sign-up');
+    var topmost = frameModule.topmost();
+    topmost.navigate('./views/sign-up/sign-up');
 };
 
 function signIn () {
-	var topmost = frameModule.topmost();
-	topmost.navigate('./views/list/list');
+    var topmost = frameModule.topmost();
+    topmost.navigate('./views/list/list');
 };
 
 function invalidCredentials(errorMsg) {
-	dialogs.alert({
-			message: errorMsg,
-			okButtonText: 'Try again'
-	});
+    dialogs.alert({
+            message: errorMsg,
+            okButtonText: 'Try again'
+    });
 };

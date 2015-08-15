@@ -63,6 +63,17 @@ function UserViewModel(info) {
             return;
         }
 
+        if (user.get('firstName') === '' || user.get('lastName') === ''
+            || user.get('email') === '' || user.get('phone') === '') {
+            reject('All fields are required.');
+            return;
+        }
+
+        if (!passwordIsStrong(user.get('password'))) {
+            reject('The password must be at least 8 characters long.');
+            return;
+        }
+
         if (!phoneIsValid(user.get('phone'))) {
             reject('Your phone number seems to be invalid. Please check it again.');
             return;
@@ -135,9 +146,20 @@ function UserViewModel(info) {
     };
 
     /**
+     * Checks if a password is strong enough (at least 8-characters long).
+     * TODO: More advanced check.
+     *
+     * @return - true if it is strong, false otherwise
+     */
+     var passwordIsStrong = function (password) {
+         return password.length >= 8;
+     };
+
+    /**
      * Checks if a mobile phone number is valid.
      * It must comply with the Bulgarian mobile phone numbers standard.
-     *
+     * It must start with '08' and have 10 digits total.
+     * 
      * @return - true if valid, false otherwise
      */
     var phoneIsValid = function (phone) {

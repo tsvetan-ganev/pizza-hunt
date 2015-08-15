@@ -1,1 +1,14 @@
 @import { url('~/app.css') };
+
+StackLayout {
+	padding: 20;
+}
+
+Image {
+	margin-top: 15;
+	margin-bottom: 15;
+}
+
+Button {
+	width: 200;
+}
