@@ -1,4 +1,3 @@
-/// <reference path="../../typings/node/node.d.ts" />
 var http = require('http'),
     observableArrayModule = require('data/observable-array'),
     config = require('../../shared/config'),

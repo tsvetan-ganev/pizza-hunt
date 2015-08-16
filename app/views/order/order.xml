@@ -1,0 +1,26 @@
+<Page navigatedTo="navigatedTo" loaded="onLoad">
+	<GridLayout rows="auto, *, auto, auto" cols="auto, auto, auto">
+		<StackLayout id="header" orientation="horizontal" row="0" cssClass="centered">
+			<Label text="Name" cssClass="name text-centered" />
+			<Label text="Quantity" cssClass="quantity text-centered" />
+			<Label text="Subtotal" cssClass="subtotal text-centered" />
+		</StackLayout>
+		<ListView items="{{ pizzas }}" row="1">
+			<ListView.itemTemplate>
+				<StackLayout orientation="horizontal" cssClass="centered">
+					<Label text="{{ name }}" textWrap="true" cssClass="name text-centered" />
+					<Label text="{{ quantity }}" cssClass="quantity text-centered" />
+					<Label text="{{ '$ ' + subtotal }}" cssClass="subtotal text-centered" />
+				</StackLayout>
+			</ListView.itemTemplate>
+		</ListView>
+		<StackLayout id="total" row="2" cssClass="centered" orientation="horizontal">
+			<Label text="Total: " textWrap="true" />
+			<Label text="{{ '$ ' + total }}" textWrap="true" />
+		</StackLayout>
+		<StackLayout id="navigation" orientation="horizontal" row="3" cssClass="centered">
+			<Button text="Back" tap="backToList" />
+			<Button text="Send order" tap="sendOrder" />
+		</StackLayout>
+	</GridLayout>
+</Page>

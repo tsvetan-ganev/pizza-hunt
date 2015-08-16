@@ -1,11 +1,26 @@
 
-var frames = require('ui/frame');
 
-exports.navigatedTo = function (args) {
-    var page = args.object;
-    page.bindingContext = page.navigationContext;
-};
+(function () {
+    'use strict';
+    
+    var frames = require('ui/frame');
 
-exports.backToListView = function (args) {
-   frames.topmost().navigate('./views/list/list');
-};
+    var viewModel = {};
+
+    exports.navigatedTo = function (args) {
+        var page = args.object;
+        viewModel = page.navigationContext;
+        page.bindingContext = viewModel;
+    };
+
+    exports.backToListView = function (args) {
+        frames.topmost().navigate('./views/list/list');
+    };
+
+    exports.addToOrder = function (args) {
+        frames.topmost().navigate({
+            moduleName: './views/order/order',
+            context: viewModel
+        });
+    };
+} ());

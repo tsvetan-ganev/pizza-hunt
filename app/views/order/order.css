@@ -1,0 +1,18 @@
+@import { url('~/app.css') };
+
+Label {
+	margin-right: 10;
+}
+
+#header {
+	font-weight: bold;
+}
+
+StackLayout {
+	padding: 10;
+	margin: 5;
+}
+
+.name, .quantity, .subtotal {
+	min-width: 100;
+}

@@ -1,11 +1,11 @@
-<Page navigatedTo="navigatedTo">
-	<ListView items="{{ pizzas }}" itemTap="viewDetails" >
+<Page loaded="onLoad" navigatedTo="navigatedTo">
+	<ListView items="{{ pizzaList }}" itemTap="viewDetails" >
 		<ListView.itemTemplate>
 			<StackLayout>
 				<Label text="{{ name }}" cssClass="text-centered text-huge" />
 				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
-				<Label text="{{ '$ ' + price }}" cssClass="text-centered text-normal" />
 				<Label text="{{ ingredientsToString() }}" cssClass="text-centered text-small" textWrap="true" />
+				<Label text="{{ '$ ' + price }}" cssClass="text-centered text-huge" />
 			</StackLayout>
 		</ListView.itemTemplate>
 	</ListView>

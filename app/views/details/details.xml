@@ -16,7 +16,7 @@
 			</StackLayout>
 			<StackLayout id="buttons" orientation="horizontal" cssClass="centered">
 				<Button text="Back" tap="backToListView" />
-				<Button text="Add to cart" />
+				<Button text="Add to order" tap="addToOrder" />
 			</StackLayout>
 		</StackLayout>
 	</ScrollView>
