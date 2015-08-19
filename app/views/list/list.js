@@ -1,12 +1,14 @@
 (function () {
     'use strict';
-    
+
     var frames = require('ui/frame');
     var observable = require("data/observable");
+    var filters = require('../../shared/filters');
     var PizzaListViewModel = require('../../shared/view-models/pizza-list');
 
     var viewModel = new observable.Observable({
-        pizzaList: PizzaListViewModel([])
+        pizzaList: PizzaListViewModel([]),
+        filters: filters
     });
 
     exports.navigatedTo = function (args) {

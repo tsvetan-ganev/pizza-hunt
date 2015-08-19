@@ -10,13 +10,13 @@
 				<StackLayout orientation="horizontal" cssClass="centered">
 					<Label text="{{ name }}" textWrap="true" cssClass="name text-centered" />
 					<Label text="{{ quantity }}" cssClass="quantity text-centered" />
-					<Label text="{{ '$ ' + subtotal }}" cssClass="subtotal text-centered" />
+					<Label text="{{ subtotal | money() }}" cssClass="subtotal text-centered" />
 				</StackLayout>
 			</ListView.itemTemplate>
 		</ListView>
 		<StackLayout id="total" row="2" cssClass="centered" orientation="horizontal">
 			<Label text="Total: " textWrap="true" />
-			<Label text="{{ '$ ' + total }}" textWrap="true" />
+			<Label text="{{ total | money() }}" textWrap="true" />
 		</StackLayout>
 		<StackLayout id="navigation" orientation="horizontal" row="3" cssClass="centered">
 			<Button text="Back" tap="backToList" />

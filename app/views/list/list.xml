@@ -2,10 +2,10 @@
 	<ListView items="{{ pizzaList }}" itemTap="viewDetails" >
 		<ListView.itemTemplate>
 			<StackLayout>
-				<Label text="{{ name }}" cssClass="text-centered text-huge" />
+				<Label text="{{ name }}" cssClass="text-centered text-huge bold" />
 				<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
-				<Label text="{{ ingredientsToString() }}" cssClass="text-centered text-small" textWrap="true" />
-				<Label text="{{ '$ ' + price }}" cssClass="text-centered text-huge" />
+				<Label text="{{ ingredients | asList() }}" cssClass="text-centered text-small" textWrap="true" />
+				<Label text="{{ price | money() }}" cssClass="text-centered text-huge" />
 			</StackLayout>
 		</ListView.itemTemplate>
 	</ListView>

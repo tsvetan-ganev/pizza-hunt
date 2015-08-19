@@ -10,23 +10,7 @@ function PizzaViewModel(options) {
         ingredients: options.ingredients || [],
         picUrl: options.picUrl || 'res://default_pizza'
     });
-
-    pizza.ingredientsToString = function () {
-        var result = '',
-            i = 0,
-            len = pizza.ingredients.length;
-
-        for (; i < len; i++) {
-            if (i === len - 1) {
-                result = result.concat(pizza.ingredients[i]);
-            } else {
-                result = result.concat(pizza.ingredients[i], ', ');
-            }
-        }
-
-        return result;
-    };
-
+    
     return pizza;
 }
 

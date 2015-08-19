@@ -41,8 +41,16 @@ Button {
 	text-align: right;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
 /* Positioning */
 .centered {
 	horizontal-align: center;
 }
+
 

@@ -6,6 +6,11 @@ Image {
 }
 
 #product-container {
-	margin-top: 30;
+	margin-top: 20;
 	padding: 20;
+}
+
+#description {
+	margin-top: 20;
+	margin-bottom: 10;
 }

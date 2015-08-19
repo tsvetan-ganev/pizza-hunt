@@ -2,17 +2,21 @@
 	<ScrollView>
 		<StackLayout id="product-container" cssClass="centered">
 			<StackLayout id="product-details">
-				<Label text="{{ name }}" cssClass="text-centered text-huge" />
+				<Label text="{{ name }}" cssClass="text-centered text-huge bold" />
 				<Image src="{{ picUrl }}" stretch="none" cssClass="centered" />
 				<StackLayout id="weight" orientation="horizontal" cssClass="centered">
-					<Label text="Weight: " cssClass="text-left text-normal" />
+					<Label text="Weight: " cssClass="text-left text-normal bold" />
 					<Label text="{{ nett }}" cssClass="text-left text-normal" />
 				</StackLayout>
 				<StackLayout id="price" orientation="horizontal" cssClass="centered">
-					<Label text="Price: " cssClass="text-left text-normal" />
-					<Label text="{{ '$ ' + price }}" cssClass="text-left text-normal" />
+					<Label text="Price: " cssClass="text-left text-normal bold" />
+					<Label text="{{ price | money() }}" cssClass="text-left text-normal" />
 				</StackLayout>
-				<Label text="{{ description }}" cssClass="text-small text-centered" textWrap="true" />
+				<StackLayout id="ingredients" orientation="horizontal" cssClass="centered">
+					<Label text="Ingredients: " cssClass="text-left text-small bold" />
+					<Label text="{{ ingredients | asList() }}" textWrap="true" cssClass="text-left text-small" />
+				</StackLayout>
+				<Label id="description" text="{{ description }}" cssClass="text-small text-centered italic" textWrap="true" />
 			</StackLayout>
 			<StackLayout id="buttons" orientation="horizontal" cssClass="centered">
 				<Button text="Back" tap="backToListView" />
