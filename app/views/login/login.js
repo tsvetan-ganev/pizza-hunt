@@ -1,34 +1,42 @@
 (function () {
     'use strict';
-    
+
     var dialogs = require('ui/dialogs'),
-        frameModule = require('ui/frame'),
-        UserViewModel = require('../../shared/view-models/user');
+        frames = require('ui/frame'),
+        observable = require('data/observable'),
+        UserViewModel = require('../../shared/view-models/user-view-model');
 
     var user = UserViewModel();
+    var viewModel = new observable.Observable({
+        user: user,
+        isLoading: false
+    });
 
     exports.init = function (args) {
         var page = args.object;
         user.set('email', 'ivan@gmail.com');
         user.set('password', 'ivanivanov');
-        page.bindingContext = user;
+        page.bindingContext = viewModel;
     };
 
-    exports.validateCredentials = function () {
-        user.login(signIn, invalidCredentials);
+    exports.sendCredentials = function () {
+        viewModel.isLoading = true;
+        user.login()
+            .then(signIn)
+            .catch(loginFailure);
     };
 
     exports.signUp = function () {
-        var topmost = frameModule.topmost();
-        topmost.navigate('./views/sign-up/sign-up');
+        frames.topmost().navigate('./views/sign-up/sign-up');
     };
 
     function signIn() {
-        var topmost = frameModule.topmost();
-        topmost.navigate('./views/list/list');
+        viewModel.isLoading = false;
+        frames.topmost().navigate('./views/list/list');
     };
 
-    function invalidCredentials(errorMsg) {
+    function loginFailure(errorMsg) {
+        viewModel.isLoading = false;
         dialogs.alert({
             message: errorMsg,
             okButtonText: 'Try again'

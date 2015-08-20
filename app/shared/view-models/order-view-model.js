@@ -1,7 +1,7 @@
 var observableModule = require('data/observable'),
     observableArrayModule = require('data/observable-array'),
-    PizzaListViewModel = require('../../shared/view-models/pizza-list'),
-    PizzaViewModel = require('../../shared/view-models/pizza');
+    PizzaListViewModel = require('../../shared/view-models/pizza-list-view-model'),
+    PizzaViewModel = require('../../shared/view-models/pizza-view-model');
 
 function OrderViewModel() {
 
@@ -34,7 +34,6 @@ function OrderViewModel() {
         };
 
         orderViewModel.total += pizza.subtotal;
-
     };
 
     orderViewModel.remove = function (index) {

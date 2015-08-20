@@ -3,12 +3,11 @@
 
     var frames = require('ui/frame');
     var observable = require("data/observable");
-    var filters = require('../../shared/filters');
-    var PizzaListViewModel = require('../../shared/view-models/pizza-list');
+    var PizzaListViewModel = require('../../shared/view-models/pizza-list-view-model');
 
     var viewModel = new observable.Observable({
         pizzaList: PizzaListViewModel([]),
-        filters: filters
+        isLoading: false
     });
 
     exports.navigatedTo = function (args) {
@@ -19,8 +18,11 @@
     exports.onLoad = function (args) {
         var page = args.object;
         page.bindingContext = viewModel;
+        viewModel.isLoading = true;
         viewModel.pizzaList.empty();
-        viewModel.pizzaList.load();
+        viewModel.pizzaList.load().then(function() {
+            // viewModel.isLoading = false;
+        });
     };
 
     exports.viewDetails = function (args) {

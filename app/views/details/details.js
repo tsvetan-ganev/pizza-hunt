@@ -1,8 +1,6 @@
-
-
 (function () {
     'use strict';
-    
+
     var frames = require('ui/frame');
 
     var viewModel = {};

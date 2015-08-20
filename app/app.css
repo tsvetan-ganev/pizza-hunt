@@ -48,9 +48,17 @@ Button {
 .italic {
 	font-style: italic;
 }
+
+.title {
+	margin-top: 10;
+	margin-bottom: 10;
+	font-size: 28;
+}
+
 /* Positioning */
 .centered {
 	horizontal-align: center;
 }
+
 
 

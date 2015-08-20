@@ -14,11 +14,11 @@
 				</StackLayout>
 			</ListView.itemTemplate>
 		</ListView>
-		<StackLayout id="total" row="2" cssClass="centered" orientation="horizontal">
+		<StackLayout id="total" row="2" cssClass="centered bold" orientation="horizontal">
 			<Label text="Total: " textWrap="true" />
 			<Label text="{{ total | money() }}" textWrap="true" />
 		</StackLayout>
-		<StackLayout id="navigation" orientation="horizontal" row="3" cssClass="centered">
+		<StackLayout id="navigation" row="3"  orientation="horizontal" cssClass="centered">
 			<Button text="Back" tap="backToList" />
 			<Button text="Send order" tap="sendOrder" />
 		</StackLayout>

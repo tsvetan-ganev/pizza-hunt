@@ -2,9 +2,10 @@
 	<ScrollView>
 		<StackLayout>
 			<StackLayout id="loginScreen">
-				<TextField hint="Email address" text="{{ email }}" keyboardType="email" cssClass="text-normal" />
-				<TextField hint="Password" text="{{ password }}" secure="true" cssClass="text-normal" />
-				<Button text="Sign in" tap="validateCredentials" />
+				<TextField hint="Email address" text="{{ user.email }}" keyboardType="email" cssClass="text-normal" />
+				<TextField hint="Password" text="{{ user.password }}" secure="true" cssClass="text-normal" />
+				<Button text="Sign in" tap="sendCredentials" />
+				<ActivityIndicator width="100" height="100" busy="{{ isLoading }}" />
 			</StackLayout>
 			<StackLayout id="sign-up">
 				<Label text="Don't have an account yet?" textWrap="true" cssClass="centered" />
