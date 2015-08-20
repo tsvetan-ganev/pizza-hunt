@@ -1,5 +1,5 @@
 ## What is going on here?
-Hardcoded data is the first choice when we exlore a new framework or technology, but the real deal is accessing remote data via RESTful services.
+Hardcoded data is the first choice when we explore a new framework or technology, but the real deal is accessing remote data via RESTful services.
 
 To simulate accessing remote resources, I use a fake REST API npm module called **json-server**.
 To get it running, first install it globally via npm.
