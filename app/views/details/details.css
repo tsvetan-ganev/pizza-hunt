@@ -1,12 +1,12 @@
 @import { url('~/app.css') };
 
 Image {
-	margin-top: 15;
-	margin-bottom: 15;
+	margin-top: 10;
+	margin-bottom: 10;
 }
 
 #product-container {
-	margin-top: 20;
+	margin-top: 0;
 	padding: 20;
 }
 

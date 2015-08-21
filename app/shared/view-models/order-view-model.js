@@ -6,38 +6,38 @@ var observableModule = require('data/observable'),
 function OrderViewModel() {
 
     var orderViewModel = new observableModule.Observable({
-        pizzas: PizzaListViewModel([]),
+        products: PizzaListViewModel([]),
         total: 0.00
     });
 
-    orderViewModel.add = function (orderedPizza) {
-        var pizza,
-            pizzaIndex;
+    orderViewModel.add = function (orderedProduct) {
+        var product,
+            productIndex;
 
-        if (orderedPizza === null) {
+        if (orderedProduct === null) {
             return;
         }
 
-        pizza = {
-            id: orderedPizza.id,
-            name: orderedPizza.name,
-            price: orderedPizza.price,
-            quantity: orderedPizza.quantity,
-            subtotal: orderedPizza.price * orderedPizza.quantity
+        product = {
+            id: orderedProduct.id,
+            name: orderedProduct.name,
+            price: orderedProduct.price,
+            quantity: orderedProduct.quantity,
+            subtotal: orderedProduct.price * orderedProduct.quantity
         };
 
-        pizzaIndex = indexOf(pizza);
-        if (pizzaIndex === -1) {
-            orderViewModel.pizzas.push(pizza);
+        productIndex = indexOf(product);
+        if (productIndex === -1) {
+            orderViewModel.products.push(product);
         } else {
-            updateProductQuantity(pizzaIndex);
+            updateProductQuantityAndPrice(productIndex, product.quantity);
         };
 
-        orderViewModel.total += pizza.subtotal;
+        orderViewModel.total += product.subtotal;
     };
 
     orderViewModel.remove = function (index) {
-        if (index < 0 || index >= orderViewModel.pizzas.length) {
+        if (index < 0 || index >= orderViewModel.products.length) {
             throw new Error('Index outside of boundaries.');
         }
 
@@ -45,25 +45,25 @@ function OrderViewModel() {
             throw new Error('The list is already empty!');
         }
 
-        orderViewModel.total -= orderViewModel.pizzas[index].subtotal;
-        orderViewModel.pizzas.splice(index, 1);
+        orderViewModel.total -= orderViewModel.products[index].subtotal;
+        orderViewModel.products.splice(index, 1);
     };
 
     orderViewModel.isEmpty = function () {
-        return orderViewModel.pizzas.length === 0;
+        return orderViewModel.products.length === 0;
     };
 
     orderViewModel.empty = function () {
-        orderViewModel.pizzas.empty();
+        orderViewModel.products.empty();
         orderViewModel.set('total', 0.00);
     };
 
     var indexOf = function (product) {
         var i = 0,
-            len = orderViewModel.pizzas.length;
+            len = orderViewModel.products.length;
 
         for (; i < len; i++) {
-            if (product.id === orderViewModel.pizzas.getItem(i).id) {
+            if (product.id === orderViewModel.products.getItem(i).id) {
                 return i;
             }
         }
@@ -71,12 +71,11 @@ function OrderViewModel() {
         return -1;
     };
 
-    var updateProductQuantity = function (index) {
-        var product = orderViewModel.pizzas.getItem(index),
-            currentQuantity = product.quantity;
+    var updateProductQuantityAndPrice = function (index, addedQuantity) {
+        var product = orderViewModel.products.getItem(index);
 
-        product.quantity = ++currentQuantity;
-        product.subtotal += product.price;
+        product.quantity += addedQuantity;
+        product.subtotal += product.price * addedQuantity;
     };
 
     return orderViewModel;

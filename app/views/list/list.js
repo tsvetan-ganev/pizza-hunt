@@ -21,7 +21,7 @@
         viewModel.isLoading = true;
         viewModel.pizzaList.empty();
         viewModel.pizzaList.load().then(function() {
-            // viewModel.isLoading = false;
+            viewModel.isLoading = false;
         });
     };
 

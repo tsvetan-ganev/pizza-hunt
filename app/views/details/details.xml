@@ -2,21 +2,23 @@
 	<ScrollView>
 		<StackLayout id="product-container" cssClass="centered">
 			<StackLayout id="product-details">
-				<Label text="{{ name }}" cssClass="text-centered text-huge bold" />
-				<Image src="{{ picUrl }}" stretch="none" cssClass="centered" />
+				<Label text="{{ product.name }}" cssClass="text-centered text-huge bold" />
+				<Image src="{{ product.picUrl }}" stretch="none" cssClass="centered" />
 				<StackLayout id="weight" orientation="horizontal" cssClass="centered">
 					<Label text="Weight: " cssClass="text-left text-normal bold" />
-					<Label text="{{ nett }}" cssClass="text-left text-normal" />
+					<Label text="{{ product.nett }}" cssClass="text-left text-normal" />
 				</StackLayout>
 				<StackLayout id="price" orientation="horizontal" cssClass="centered">
 					<Label text="Price: " cssClass="text-left text-normal bold" />
-					<Label text="{{ price | money() }}" cssClass="text-left text-normal" />
+					<Label text="{{ product.price | money() }}" cssClass="text-left text-normal" />
 				</StackLayout>
-				<StackLayout id="ingredients" orientation="horizontal" cssClass="centered">
-					<Label text="Ingredients: " cssClass="text-left text-small bold" />
-					<Label text="{{ ingredients | asList() }}" textWrap="true" cssClass="text-left text-small" />
-				</StackLayout>
-				<Label id="description" text="{{ description }}" cssClass="text-small text-centered italic" textWrap="true" />
+				<Label text="{{ product.ingredients | asList() }}" textWrap="true" cssClass="text-centered text-small" />
+				<Label id="description" text="{{ product.description }}" cssClass="text-small text-centered italic" textWrap="true" />
+			</StackLayout>
+			<StackLayout orientation="horizontal" cssClass="centered">
+				<Button text="-" tap="removeOne" />
+				<Label text="{{ quantity }}" textWrap="true" />
+				<Button text="+" tap="addOne" />
 			</StackLayout>
 			<StackLayout id="buttons" orientation="horizontal" cssClass="centered">
 				<Button text="Back" tap="backToListView" />

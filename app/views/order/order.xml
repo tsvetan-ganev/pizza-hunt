@@ -5,7 +5,7 @@
 			<Label text="Quantity" cssClass="quantity text-centered" />
 			<Label text="Subtotal" cssClass="subtotal text-centered" />
 		</StackLayout>
-		<ListView items="{{ pizzas }}" row="1">
+		<ListView items="{{ products }}" row="1">
 			<ListView.itemTemplate>
 				<StackLayout orientation="horizontal" cssClass="centered">
 					<Label text="{{ name }}" textWrap="true" cssClass="name text-centered" />

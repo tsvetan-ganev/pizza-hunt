@@ -5,25 +5,25 @@ var OrderViewModel = require('../../shared/view-models/order-view-model');
 
 (function () {
     'use strict';
-    var viewModel = OrderViewModel();
-    var orderedPizza = {};
+    var orderViewModel = OrderViewModel();
+    var detailsViewModel = {};
 
     exports.onLoad = function (args) {
         var page = args.object;
-        page.bindingContext = viewModel;
+        page.bindingContext = orderViewModel;
     };
 
     exports.navigatedTo = function (args) {
         var page = args.object;
-        page.bindingContext = viewModel;
+        page.bindingContext = orderViewModel;
 
-        orderedPizza = page.navigationContext;
+        detailsViewModel = page.navigationContext;
 
-        viewModel.add({
-            id: orderedPizza.id,
-            name: orderedPizza.name,
-            price: orderedPizza.price,
-            quantity: 1
+        orderViewModel.add({
+            id: detailsViewModel.product.id,
+            name: detailsViewModel.product.name,
+            price: detailsViewModel.product.price,
+            quantity: detailsViewModel.quantity
         });
     };
 
