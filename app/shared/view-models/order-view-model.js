@@ -1,12 +1,12 @@
-var observableModule = require('data/observable'),
-    observableArrayModule = require('data/observable-array'),
-    PizzaListViewModel = require('../../shared/view-models/pizza-list-view-model'),
-    PizzaViewModel = require('../../shared/view-models/pizza-view-model');
-
 function OrderViewModel() {
+    'use strict';
 
-    var orderViewModel = new observableModule.Observable({
-        products: PizzaListViewModel([]),
+    var observableModule = require('data/observable'),
+        createPizzaListViewModel = require('../../shared/view-models/pizza-list-view-model'),
+        orderViewModel;
+
+    orderViewModel = new observableModule.Observable({
+        products: createPizzaListViewModel([]),
         total: 0.00
     });
 
@@ -31,7 +31,7 @@ function OrderViewModel() {
             orderViewModel.products.push(product);
         } else {
             updateProductQuantityAndPrice(productIndex, product.quantity);
-        };
+        }
 
         orderViewModel.total += product.subtotal;
     };
@@ -62,7 +62,7 @@ function OrderViewModel() {
         var i = 0,
             len = orderViewModel.products.length;
 
-        for (; i < len; i++) {
+        for (; i < len; i += 1) {
             if (product.id === orderViewModel.products.getItem(i).id) {
                 return i;
             }

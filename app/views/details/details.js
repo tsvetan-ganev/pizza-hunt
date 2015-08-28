@@ -3,10 +3,12 @@
 
     var frames = require('ui/frame'),
         observable = require('data/observable'),
-        viewModel = new observable.Observable({
-          quantity: 1,
-          product: {}
-        });
+        viewModel;
+
+    viewModel = new observable.Observable({
+        quantity: 1,
+        product: {}
+    });
 
     exports.navigatedTo = function (args) {
         var page = args.object;
@@ -15,26 +17,26 @@
         page.bindingContext = viewModel;
     };
 
-    exports.backToListView = function (args) {
+    exports.backToListView = function () {
         frames.topmost().navigate('./views/list/list');
     };
 
-    exports.removeOne = function (args) {
-        if(viewModel.quantity > 0) {
+    exports.removeOne = function () {
+        if (viewModel.quantity > 1) {
             viewModel.quantity -= 1;
         }
     };
 
-    exports.addOne = function (args) {
-        if(viewModel.quantity < 10) {
+    exports.addOne = function () {
+        if (viewModel.quantity < 10) {
             viewModel.quantity += 1;
         }
     };
 
-    exports.addToOrder = function (args) {
+    exports.addToOrder = function () {
         frames.topmost().navigate({
             moduleName: './views/order/order',
             context: viewModel
         });
     };
-} ());
+}());

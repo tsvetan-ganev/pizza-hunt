@@ -1,4 +1,6 @@
 var filters = (function () {
+    'use strict';
+
     var filters = {};
 
     filters.money = function (amount, currency, placeAfter) {
@@ -12,22 +14,10 @@ var filters = (function () {
     };
 
     filters.asList = function (items) {
-        var result = '',
-            i = 0,
-            len = items.length;
-
-        for (; i < len; i++) {
-            if (i === len - 1) {
-                result = result.concat(items[i]);
-            } else {
-                result = result.concat(items[i], ', ');
-            }
-        }
-
-        return result;
+        return items.join(', ');
     };
 
     return filters;
-} ());
+}());
 
 module.exports = filters;

@@ -1,4 +1,6 @@
 function PizzaViewModel(options) {
+    'use strict';
+
     options = options || {};
 
      var pizza = ({
@@ -10,7 +12,7 @@ function PizzaViewModel(options) {
         ingredients: options.ingredients || [],
         picUrl: options.picUrl || 'res://default_pizza'
     });
-    
+
     return pizza;
 }
 

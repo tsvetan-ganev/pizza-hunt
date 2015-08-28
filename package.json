@@ -1,8 +1,14 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.pizzahunt",
-		"tns-android": {
-			"version": "1.2.1"
-		}
-	}
+  "nativescript": {
+    "id": "org.nativescript.pizzahunt",
+    "tns-android": {
+      "version": "1.2.1"
+    }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-run": "^1.6.10"
+  }
 }

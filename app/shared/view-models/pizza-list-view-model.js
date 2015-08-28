@@ -1,11 +1,14 @@
-var http = require('http'),
-    observableArrayModule = require('data/observable-array'),
-    config = require('../../shared/config'),
-    PizzaViewModel = require('../../shared/view-models/pizza-view-model');
-
 function PizzaListViewModel(pizzas) {
-    pizzas = pizzas || [];
-    var pizzaList = new observableArrayModule.ObservableArray(pizzas);
+    'use strict';
+
+    var http = require('http'),
+        observableArrayModule = require('data/observable-array'),
+        config = require('../../shared/config'),
+        createPizzaViewModel = require('../../shared/view-models/pizza-view-model'),
+        pizzaList;
+
+        pizzas = pizzas || [];
+        pizzaList = new observableArrayModule.ObservableArray(pizzas);
 
     /**
      * Loads a list of pizzas from a fake remote service.
@@ -15,7 +18,7 @@ function PizzaListViewModel(pizzas) {
             http.getJSON(config.remoteServiceUrl + 'pizzas')
                 .then(function (data) {
                     data.forEach(function (pizza) {
-                        var pizzaViewModel = PizzaViewModel(pizza);
+                        var pizzaViewModel = createPizzaViewModel(pizza);
                         pizzaList.push(pizzaViewModel);
                     });
                 })

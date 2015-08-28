@@ -3,7 +3,11 @@
   "main": "app.js",
   "version": "1.2.0",
   "author": "Tsvetan Ganev",
-  "description": "NativeScript sample project.",
+  "description": "NativeScript sample application.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsvetan-ganev/pizza-hunt"
+  },
   "license": "BSD",
   "keywords": [
     "telerik",

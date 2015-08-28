@@ -1,14 +1,17 @@
-var observableModule = require('data/observable');
-var http = require('http');
-var config = require('../../shared/config');
-
 function UserViewModel(info) {
+    'use strict';
+
+    var observableModule = require('data/observable'),
+        http = require('http'),
+        config = require('../../shared/config'),
+        user;
+
     info = info || {};
 
     /**
      * Constructs an observable object of type User.
      */
-    var user = new observableModule.Observable({
+    user = new observableModule.Observable({
         email: info.email || '',
         firstName: info.firstName || '',
         lastName: info.lastName || '',
@@ -18,9 +21,6 @@ function UserViewModel(info) {
 
     /**
      * Handles the signing in of a user.
-     *
-     * @param resolve - callback called when the user has entered valid credentials
-     * @param reject(errorMsg) - callback called when the user has entered invalid credentials
      */
     user.login = function () {
         return new Promise(function (resolve, reject) {
@@ -33,8 +33,8 @@ function UserViewModel(info) {
                 .then(function (data) {
                     if (data.length > 0) {
                         data.forEach(function (registeredUser) {
-                            if (user.get('email') === registeredUser.email
-                                && user.get('password') === registeredUser.password) {
+                            if (user.get('email') === registeredUser.email &&
+                                user.get('password') === registeredUser.password) {
                                 resolve();
                                 return;
                             } else {

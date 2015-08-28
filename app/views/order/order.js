@@ -1,12 +1,13 @@
-var observableArray = require('data/observable-array');
-var observable = require('data/observable-array');
-var frames = require('ui/frame');
-var OrderViewModel = require('../../shared/view-models/order-view-model');
-
 (function () {
     'use strict';
-    var orderViewModel = OrderViewModel();
-    var detailsViewModel = {};
+
+    var frames = require('ui/frame'),
+        createOrderViewModel = require('../../shared/view-models/order-view-model'),
+        orderViewModel,
+        detailsViewModel;
+
+    orderViewModel = createOrderViewModel();
+    detailsViewModel = {};
 
     exports.onLoad = function (args) {
         var page = args.object;
@@ -27,7 +28,7 @@ var OrderViewModel = require('../../shared/view-models/order-view-model');
         });
     };
 
-    exports.backToList = function (args) {
+    exports.backToList = function () {
         frames.topmost().navigate('./views/list/list');
     };
 } ());

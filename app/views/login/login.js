@@ -4,9 +4,9 @@
     var dialogs = require('ui/dialogs'),
         frames = require('ui/frame'),
         observable = require('data/observable'),
-        UserViewModel = require('../../shared/view-models/user-view-model');
+        createUserViewModel = require('../../shared/view-models/user-view-model');
 
-    var user = UserViewModel();
+    var user = createUserViewModel();
     var viewModel = new observable.Observable({
         user: user,
         isLoading: false
@@ -33,7 +33,7 @@
     function signIn() {
         viewModel.isLoading = false;
         frames.topmost().navigate('./views/list/list');
-    };
+    }
 
     function loginFailure(errorMsg) {
         viewModel.isLoading = false;
@@ -41,5 +41,5 @@
             message: errorMsg,
             okButtonText: 'Try again'
         });
-    };
+    }
 } ());

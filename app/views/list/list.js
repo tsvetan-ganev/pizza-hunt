@@ -1,12 +1,13 @@
 (function () {
     'use strict';
 
-    var frames = require('ui/frame');
-    var observable = require("data/observable");
-    var PizzaListViewModel = require('../../shared/view-models/pizza-list-view-model');
+    var frames = require('ui/frame'),
+        observable = require('data/observable'),
+        createPizzaListViewModel = require('../../shared/view-models/pizza-list-view-model'),
+        viewModel;
 
-    var viewModel = new observable.Observable({
-        pizzaList: PizzaListViewModel([]),
+    viewModel = new observable.Observable({
+        pizzaList: createPizzaListViewModel([]),
         isLoading: false
     });
 
@@ -20,7 +21,7 @@
         page.bindingContext = viewModel;
         viewModel.isLoading = true;
         viewModel.pizzaList.empty();
-        viewModel.pizzaList.load().then(function() {
+        viewModel.pizzaList.load().then(function () {
             viewModel.isLoading = false;
         });
     };

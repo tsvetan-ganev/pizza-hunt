@@ -6,16 +6,28 @@
       "description": "A light pizza with olive oil, garlic, fresh basil, fresh tomatoes, mozzarella and Parmesan cheeses. Perfect with a beer on a hot summer night.",
       "price": 7.45,
       "nett": "1 kg",
-      "ingredients": ["olive oil", "garlic", "basil", "tomatoes", "mozzarella", "parmesan"],
+      "ingredients": [
+        "olive oil",
+        "garlic",
+        "basil",
+        "tomatoes",
+        "mozzarella",
+        "parmesan"
+      ],
       "picUrl": "res://pizza_margarita"
     },
     {
       "id": "55d11083746f1b10172b229a",
       "name": "Vegetariana",
       "description": "Specially made for hipster vegan parties.",
-      "price": 5.30,
+      "price": 5.3,
       "nett": "900 g",
-      "ingredients": ["tomatoes", "peppers", "onion", "olives"],
+      "ingredients": [
+        "tomatoes",
+        "peppers",
+        "onion",
+        "olives"
+      ],
       "picUrl": "res://pizza_vegetariana"
     },
     {
@@ -24,16 +36,26 @@
       "description": "Mozzarella cheese, Italian baked ham, mushroom, artichoke and tomato.",
       "price": 8.45,
       "nett": "650 g",
-      "ingredients": ["mozzarella", "baked ham", "mushroom", "artichoke", "tomatoes"],
+      "ingredients": [
+        "mozzarella",
+        "baked ham",
+        "mushroom",
+        "artichoke",
+        "tomatoes"
+      ],
       "picUrl": "res://pizza_capricciosa"
     },
     {
       "id": "55d11091746f1b10172b229c",
       "name": "Napoletana",
       "description": "Made with fresh tomatoes and classic Italian Mozzarella cheese.",
-      "price": 6.10,
+      "price": 6.1,
       "nett": "500 g",
-      "ingredients": ["tomatoes", "mozzarella", "olive oil"],
+      "ingredients": [
+        "tomatoes",
+        "mozzarella",
+        "olive oil"
+      ],
       "picUrl": "res://pizza_napoletana"
     }
   ],

@@ -4,20 +4,21 @@
     var frameModule = require('ui/frame'),
         dialogs = require('ui/dialogs'),
         validation = require('../../shared/validation'),
-        UserViewModel = require('../../shared/view-models/user-view-model'),
-        user = UserViewModel({});
+        createUserViewModel = require('../../shared/view-models/user-view-model'),
+        user;
+
+    user = createUserViewModel({});
 
     exports.init = function (args) {
         var page = args.object;
-
         page.bindingContext = user;
     };
 
-    exports.register = function (args) {
+    exports.register = function () {
         validateSignUpForm()
-        .then(user.register)
-        .then(signIn)
-        .catch(registrationError);
+            .then(user.register)
+            .then(signIn)
+            .catch(registrationError);
     };
 
     function signIn() {
@@ -28,19 +29,21 @@
             var topmost = frameModule.topmost();
             topmost.navigate('./views/list/list');
         });
-    };
+    }
 
     function registrationError(errorMsg) {
         dialogs.alert({
             message: errorMsg,
             okButtonText: 'Try again.'
         });
-    };
+    }
 
     function validateSignUpForm() {
         return new Promise(function (resolve, reject) {
-            if (user.get('firstName') === '' || user.get('lastName') === ''
-                || user.get('email') === '' || user.get('phone') === '') {
+            if (user.get('firstName') === '' ||
+                user.get('lastName') === '' ||
+                user.get('email') === '' ||
+                user.get('phone') === '') {
                 reject('All fields are required.');
                 return;
             }
@@ -62,5 +65,5 @@
 
             resolve();
         });
-    };
+    }
 } ());
