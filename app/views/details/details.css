@@ -14,3 +14,25 @@ Image {
 	margin-top: 20;
 	margin-bottom: 10;
 }
+
+#add-btn {
+	border-radius: 3;
+	width: 48;
+	height: 48;
+	background-color: yellowgreen;
+	color: white;
+	margin: 20;
+}
+
+#remove-btn {
+	border-radius: 3;
+	width: 48;
+	height: 48;
+	background-color: darkred;
+	color: white;
+	margin: 20;
+}
+
+GridLayout {
+	padding: 0 20;
+}

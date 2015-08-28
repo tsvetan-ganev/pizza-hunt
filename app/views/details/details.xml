@@ -1,29 +1,28 @@
 <Page navigatedTo="navigatedTo">
 	<ScrollView>
-		<StackLayout id="product-container" cssClass="centered">
-			<StackLayout id="product-details">
+		<GridLayout rows="auto, auto, auto, auto, auto" cols="*,*,*">
+			<StackLayout row="0">
 				<Label text="{{ product.name }}" cssClass="text-centered text-huge bold" />
 				<Image src="{{ product.picUrl }}" stretch="none" cssClass="centered" />
-				<StackLayout id="weight" orientation="horizontal" cssClass="centered">
-					<Label text="Weight: " cssClass="text-left text-normal bold" />
-					<Label text="{{ product.nett }}" cssClass="text-left text-normal" />
-				</StackLayout>
-				<StackLayout id="price" orientation="horizontal" cssClass="centered">
-					<Label text="Price: " cssClass="text-left text-normal bold" />
-					<Label text="{{ product.price | money() }}" cssClass="text-left text-normal" />
-				</StackLayout>
+			</StackLayout>
+			<StackLayout row="1" orientation="horizontal" cssClass="centered">
+				<Label text="{{ product.nett }}" cssClass="text-big bold" />
+				<Label text=" | " cssClass="text-big bold" />
+				<Label text="{{ product.price | money() }}" cssClass="text-big bold" />
+			</StackLayout>
+			<StackLayout row="2">
 				<Label text="{{ product.ingredients | asList() }}" textWrap="true" cssClass="text-centered text-small" />
 				<Label id="description" text="{{ product.description }}" cssClass="text-small text-centered italic" textWrap="true" />
 			</StackLayout>
-			<StackLayout orientation="horizontal" cssClass="centered">
-				<Button text="-" tap="removeOne" />
-				<Label text="{{ quantity }}" textWrap="true" />
-				<Button text="+" tap="addOne" />
+			<StackLayout orientation="horizontal" row="3" cssClass="centered">
+				<Button id="remove-btn" text="-" tap="removeOne" cssClass="bold text-big" />
+				<Label text="{{ quantity }}" cssClass="text-big" verticalAlignment="center" />
+				<Button id="add-btn" text="+" tap="addOne" cssClass="bold text-big" />
 			</StackLayout>
-			<StackLayout id="buttons" orientation="horizontal" cssClass="centered">
+			<StackLayout id="buttons" row="4" orientation="horizontal" cssClass="centered">
 				<Button text="Back" tap="backToListView" />
 				<Button text="Add to order" tap="addToOrder" />
 			</StackLayout>
-		</StackLayout>
+		</GridLayout>
 	</ScrollView>
 </Page>
