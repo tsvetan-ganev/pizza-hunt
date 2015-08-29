@@ -1,4 +1,4 @@
-@import { url('~/app.css') };
+@import url('~/app.css');
 
 Image {
 	margin-top: 10;
