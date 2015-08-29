@@ -1,26 +1,30 @@
 <Page navigatedTo="navigatedTo" loaded="onLoad">
-	<GridLayout rows="auto, *, auto, auto" cols="auto, auto, auto">
-		<StackLayout id="header" orientation="horizontal" row="0" cssClass="centered">
-			<Label text="Name" cssClass="name text-centered" />
-			<Label text="Quantity" cssClass="quantity text-centered" />
-			<Label text="Subtotal" cssClass="subtotal text-centered" />
-		</StackLayout>
-		<ListView items="{{ products }}" row="1">
-			<ListView.itemTemplate>
-				<StackLayout orientation="horizontal" cssClass="centered">
-					<Label text="{{ name }}" textWrap="true" cssClass="name text-centered" />
-					<Label text="{{ quantity }}" cssClass="quantity text-centered" />
-					<Label text="{{ subtotal | money() }}" cssClass="subtotal text-centered" />
-				</StackLayout>
-			</ListView.itemTemplate>
-		</ListView>
-		<StackLayout id="total" row="2" cssClass="centered bold" orientation="horizontal">
-			<Label text="Total: " textWrap="true" />
-			<Label text="{{ total | money() }}" textWrap="true" />
-		</StackLayout>
-		<StackLayout id="navigation" row="3"  orientation="horizontal" cssClass="centered">
-			<Button text="Back" tap="backToList" />
-			<Button text="Send order" tap="sendOrder" />
-		</StackLayout>
-	</GridLayout>
+	<ScrollView>
+		<GridLayout id="orderedProductsTable" rows="auto,auto,auto,auto" columns="*,70,*,*">
+
+			<Label row="0" col="0" text="Name" cssClass="th text-left bold" />
+			<Label row="0" col="1" text="Qty" cssClass="th text-right bold" />
+			<Label row="0" col="2" text="Subtotal" cssClass="th text-right bold" />
+
+			<Repeater row="1" col="0" colSpan="4" items="{{ products }}">
+				<Repeater.itemsLayout>
+					<StackLayout />
+				</Repeater.itemsLayout>
+				<Repeater.itemTemplate>
+					<GridLayout rows="auto" columns="*,70,*,*">
+						<Label col="0" text="{{ name }}" cssClass="text-left" />
+						<Label col="1" text="{{ quantity }}" cssClass="text-right" />
+						<Label col="2" text="{{ subtotal | money() }}" cssClass="text-right" />
+						<Image col="3" src="res://delete" stretch ="fill" tap="removeProduct" width="18" height="18" />
+					</GridLayout>
+				</Repeater.itemTemplate>
+			</Repeater>
+
+			<Label id="total-label" row="2" col="1" text="Total:" cssClass="text-right bold" />
+			<Label id="total-value" row="2" col="2" text="{{ total | money() }}" cssClass="text-right bold" />
+
+			<Button row="3" col="0" colSpan="2" text="Back" tap="backToList" />
+			<Button row="3" col="2" colSpan="2" text="Send order" tap="sendOrder" />
+		</GridLayout>
+	</ScrollView>
 </Page>

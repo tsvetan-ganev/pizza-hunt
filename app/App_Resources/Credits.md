@@ -1,0 +1,1 @@
+Delete.png icon made by [Puppets](http://puppetscientists.com "Puppets") from [flaticon](http://www.flaticon.com).

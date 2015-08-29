@@ -1,19 +1,34 @@
-@import { url('~/app.css') };
+@import url('~/app.css');
 
+#orderedProductsTable {
+	margin-top: 10;
+}
 Label {
+	margin-left: 10;
 	margin-right: 10;
 }
 
-
-#header {
-	font-weight: bold;
-}
-
 StackLayout {
-	padding: 10;
-	margin: 5;
+	padding: 0;
 }
 
-.name, .quantity, .subtotal {
-	min-width: 100;
+Button {
+	margin: 0;
+	padding: 0;
+}
+
+.th {
+	padding: 10;
+}
+
+.remove-btn {
+	color: darkred;
+}
+
+#total-label, #total-value {
+	margin-top: 20;
+}
+
+GridLayout {
+	margin-top: 15;
 }

@@ -14,7 +14,7 @@ function OrderViewModel() {
         var product,
             productIndex;
 
-        if (orderedProduct === null) {
+        if (orderedProduct === null || orderedProduct === undefined) {
             return;
         }
 
@@ -31,6 +31,8 @@ function OrderViewModel() {
             orderViewModel.products.push(product);
         } else {
             updateProductQuantityAndPrice(productIndex, product.quantity);
+            // this is a hack to update the underlying observable array
+            orderViewModel.products.push();
         }
 
         orderViewModel.total += product.subtotal;
@@ -41,11 +43,12 @@ function OrderViewModel() {
             throw new Error('Index outside of boundaries.');
         }
 
-        if (orderViewModel.empty()) {
+        if (orderViewModel.isEmpty()) {
             throw new Error('The list is already empty!');
         }
 
-        orderViewModel.total -= orderViewModel.products[index].subtotal;
+        var product = orderViewModel.products.getItem(index);
+        orderViewModel.total -= product.subtotal;
         orderViewModel.products.splice(index, 1);
     };
 
@@ -75,7 +78,7 @@ function OrderViewModel() {
         var product = orderViewModel.products.getItem(index);
 
         product.quantity += addedQuantity;
-        product.subtotal += product.price * addedQuantity;
+        product.subtotal = product.price * product.quantity;
     };
 
     return orderViewModel;

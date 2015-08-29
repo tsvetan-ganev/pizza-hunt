@@ -3,18 +3,18 @@
 
     var frames = require('ui/frame'),
         observable = require('data/observable'),
-        viewModel;
+        detailsViewModel;
 
-    viewModel = new observable.Observable({
+    detailsViewModel = new observable.Observable({
         quantity: 1,
         product: {}
     });
 
     exports.navigatedTo = function (args) {
         var page = args.object;
-        viewModel.product = page.navigationContext;
-        viewModel.quantity = 1;
-        page.bindingContext = viewModel;
+        detailsViewModel.set('product', page.navigationContext || {});
+        detailsViewModel.set('quantity', 1);
+        page.bindingContext = detailsViewModel;
     };
 
     exports.backToListView = function () {
@@ -22,21 +22,21 @@
     };
 
     exports.removeOne = function () {
-        if (viewModel.quantity > 1) {
-            viewModel.quantity -= 1;
+        if (detailsViewModel.quantity > 1) {
+            detailsViewModel.set('quantity', detailsViewModel.quantity - 1);
         }
     };
 
     exports.addOne = function () {
-        if (viewModel.quantity < 10) {
-            viewModel.quantity += 1;
+        if (detailsViewModel.quantity < 10) {
+            detailsViewModel.set('quantity', detailsViewModel.quantity + 1);
         }
     };
 
     exports.addToOrder = function () {
         frames.topmost().navigate({
             moduleName: './views/order/order',
-            context: viewModel
+            context: detailsViewModel
         });
     };
 }());
