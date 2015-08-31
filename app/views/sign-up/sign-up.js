@@ -9,7 +9,7 @@
 
     user = createUserViewModel({});
 
-    exports.init = function (args) {
+    exports.onLoaded = function (args) {
         var page = args.object;
         page.bindingContext = user;
     };

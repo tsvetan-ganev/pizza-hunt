@@ -2,6 +2,8 @@ function OrderViewModel() {
     'use strict';
 
     var observableModule = require('data/observable'),
+        http = require('http'),
+        config = require('../../shared/config'),
         createPizzaListViewModel = require('../../shared/view-models/pizza-list-view-model'),
         orderViewModel;
 
@@ -50,6 +52,35 @@ function OrderViewModel() {
         var product = orderViewModel.products.getItem(index);
         orderViewModel.total -= product.subtotal;
         orderViewModel.products.splice(index, 1);
+    };
+
+    orderViewModel.send = function () {
+        var orderedProducts = [];
+
+        orderViewModel.products.forEach(function (p) {
+            orderedProducts.push({
+                id: p.id,
+                name: p.name,
+                qty: p.quantity
+            });
+        }, this);
+
+        return new Promise(function (resolve, reject) {
+            http.request({
+                url: config.remoteServiceUrl + 'orders',
+                method: 'POST',
+                content: JSON.stringify({
+                    orderedProducts: orderedProducts
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function () {
+                resolve();
+            }).catch(function () {
+                reject('Connection problems.');
+            });
+        });
     };
 
     orderViewModel.isEmpty = function () {

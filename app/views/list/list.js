@@ -16,7 +16,7 @@
         page.bindingContext = viewModel;
     };
 
-    exports.onLoad = function (args) {
+    exports.onLoaded = function (args) {
         var page = args.object;
         page.bindingContext = viewModel;
         viewModel.isLoading = true;
@@ -31,6 +31,10 @@
             moduleName: './views/details/details',
             context: viewModel.pizzaList.getItem(args.index)
         });
+    };
+
+    exports.goToCart = function () {
+        frames.topmost().navigate('./views/order/order');
     };
 } ());
 

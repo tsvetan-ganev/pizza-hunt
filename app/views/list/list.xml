@@ -1,10 +1,17 @@
-<Page loaded="onLoad" navigatedTo="navigatedTo">
+<Page loaded="onLoaded" navigatedTo="navigatedTo">
+	<Page.actionBar>
+		<ActionBar>
+			<ActionBar.actionItems>
+				<ActionItem icon="res://cart" tap="goToCart" iosPosition="right" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
 	<StackLayout id="container">
-		<ListView items="{{ pizzaList }}" itemTap="viewDetails" >
+		<ListView items="{{ pizzaList }}" itemTap="viewDetails">
 			<ListView.itemTemplate>
 				<StackLayout>
-					<Label text="{{ name }}" cssClass="text-centered text-huge bold" />
-					<Image src="{{ picUrl }}" stretch ="none" cssClass="centered" />
+					<Label text="{{ name }}" textWrap="true" cssClass="text-centered text-huge bold" />
+					<Image src="{{ picUrl }}" stretch="none" cssClass="centered" />
 					<Label text="{{ ingredients | asList() }}" cssClass="text-centered text-small" textWrap="true" />
 					<Label text="{{ price | money() }}" cssClass="text-centered text-huge" />
 				</StackLayout>
@@ -12,5 +19,4 @@
 		</ListView>
 		<ActivityIndicator width="100" height="100" busy="{{ isLoading }}" />
 	</StackLayout>
-
 </Page>

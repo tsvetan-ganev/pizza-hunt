@@ -20,7 +20,7 @@
       "id": "55d11083746f1b10172b229a",
       "name": "Vegetariana",
       "description": "Specially made for hipster vegan parties.",
-      "price": 5.3,
+      "price": 5.30,
       "nett": "900 g",
       "ingredients": [
         "tomatoes",
@@ -49,7 +49,7 @@
       "id": "55d11091746f1b10172b229c",
       "name": "Napoletana",
       "description": "Made with fresh tomatoes and classic Italian Mozzarella cheese.",
-      "price": 6.1,
+      "price": 6.10,
       "nett": "500 g",
       "ingredients": [
         "tomatoes",
@@ -57,6 +57,67 @@
         "olive oil"
       ],
       "picUrl": "res://pizza_napoletana"
+    },
+    {
+      "id": "55d11091746f1b10172b229d",
+      "name": "Quattro Formaggi",
+      "description": "The more of the cheeze, the tastier the pizza.",
+      "price": 7.15,
+      "nett": "630 g",
+      "ingredients": [
+        "tomatoes",
+        "olive oil",
+        "mozzarella",
+        "parmesan",
+        "ricotta",
+        "gorgonzola"
+      ],
+      "picUrl": "res://pizza_quattro"
+    },
+    {
+      "id": "55d11091746f1b10172b229e",
+      "name": "Pepperoni",
+      "description": "Pepperoni, pepperoni and more pepperoni!",
+      "price": 6.80,
+      "nett": "590 g",
+      "ingredients": [
+        "tomatoes",
+        "basil",
+        "peppers",
+        "mozzarella",
+        "pepperoni"
+      ],
+      "picUrl": "res://pizza_pepperoni"
+    },
+    {
+      "id": "55d11091746f1b10172b229f",
+      "name": "Calzone",
+      "description": "Many tasty things are hidden within.",
+      "price": 5.75,
+      "nett": "480 g",
+      "ingredients": [
+        "tomatoes",
+        "salami",
+        "ham",
+        "mozzarella",
+        "parmesan",
+        "ricotta"
+      ],
+      "picUrl": "res://pizza_calzone"
+    },
+    {
+      "id": "55d11091746f1b10172b22a1",
+      "name": "Hawaii",
+      "description": "Despite its name, Hawaiian pizza is not a Hawaiian invention; it is Canadian.",
+      "price": 6.60,
+      "nett": "640 g",
+      "ingredients": [
+        "tomatoes",
+        "pineapple",
+        "ham",
+        "cheeze"
+      ],
+      "picUrl": "res://pizza_hawaii"
     }
   ],
   "users": [
@@ -88,5 +149,6 @@
       "phone": "0888123456",
       "password": "mariailieva"
     }
-  ]
+  ],
+  "orders": []
 }
