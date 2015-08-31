@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 
 // json-server Task
 gulp.task('server', function() {
-    return run('json-server resources/_db.json --watch -p 6666 -d 666').exec()
+    return run('json-server resources/_db.json --watch -p 8080 -d 666').exec()
         .pipe(gulp.dest('output'));
 });
 

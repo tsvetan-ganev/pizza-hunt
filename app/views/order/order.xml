@@ -1,7 +1,13 @@
 <Page navigatedTo="navigatedTo" loaded="onLoad">
+	<Page.actionBar>
+		<ActionBar>
+			<ActionBar.actionItems>
+				<ActionItem icon="res://pizzas" tap="backToList" iosPosition="right" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
 	<ScrollView>
-		<GridLayout id="orderedProductsTable" rows="auto,auto,auto,auto" columns="*,70,*,*">
-
+		<GridLayout id="orderedProductsTable" rows="auto,auto,auto,auto" columns="*,70,*,50">
 			<Label row="0" col="0" text="Name" cssClass="th text-left bold" />
 			<Label row="0" col="1" text="Qty" cssClass="th text-right bold" />
 			<Label row="0" col="2" text="Subtotal" cssClass="th text-right bold" />
@@ -11,11 +17,11 @@
 					<StackLayout />
 				</Repeater.itemsLayout>
 				<Repeater.itemTemplate>
-					<GridLayout rows="auto" columns="*,70,*,*">
-						<Label col="0" text="{{ name }}" cssClass="text-left" />
+					<GridLayout rows="auto" columns="*,70,*,50">
+						<Label col="0" text="{{ name }}" textWrap="true" cssClass="text-left" />
 						<Label col="1" text="{{ quantity }}" cssClass="text-right" />
 						<Label col="2" text="{{ subtotal | money() }}" cssClass="text-right" />
-						<Image col="3" src="res://delete" stretch ="fill" tap="removeProduct" width="18" height="18" />
+						<Image col="3" src="res://delete" stretch="fill" tap="removeProduct" width="18" height="18" />
 					</GridLayout>
 				</Repeater.itemTemplate>
 			</Repeater>

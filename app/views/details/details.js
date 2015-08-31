@@ -17,10 +17,6 @@
         page.bindingContext = detailsViewModel;
     };
 
-    exports.backToListView = function () {
-        frames.topmost().navigate('./views/list/list');
-    };
-
     exports.removeOne = function () {
         if (detailsViewModel.quantity > 1) {
             detailsViewModel.set('quantity', detailsViewModel.quantity - 1);
@@ -39,4 +35,12 @@
             context: detailsViewModel
         });
     };
-}());
+
+    exports.backToListView = function () {
+        frames.topmost().navigate('./views/list/list');
+    };
+
+    exports.goToCart = function () {
+        frames.topmost().navigate('./views/order/order');
+    };
+} ());

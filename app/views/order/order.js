@@ -2,6 +2,7 @@
     'use strict';
 
     var frames = require('ui/frame'),
+        dialogs = require('ui/dialogs'),
         createOrderViewModel = require('../../shared/view-models/order-view-model'),
         orderViewModel,
         detailsViewModel;
@@ -14,12 +15,14 @@
         page.bindingContext = orderViewModel;
         detailsViewModel = page.navigationContext;
 
-        orderViewModel.add({
-            id: detailsViewModel.product.id,
-            name: detailsViewModel.product.name,
-            price: detailsViewModel.product.price,
-            quantity: detailsViewModel.quantity
-        });
+        if (detailsViewModel) {
+            orderViewModel.add({
+                id: detailsViewModel.product.id,
+                name: detailsViewModel.product.name,
+                price: detailsViewModel.product.price,
+                quantity: detailsViewModel.quantity
+            });
+        }
     };
 
     exports.removeProduct = function (args) {
@@ -29,8 +32,25 @@
         orderViewModel.remove(index);
     };
 
+    exports.sendOrder = function () {
+        // TODO: Add information about the user
+        orderViewModel.send().then(function () {
+            orderViewModel.empty();
+            dialogs.alert({
+                message: 'Order sent successfully.',
+                okButtonText: 'That\'s awesome!'
+            });
+        }).catch(function (err) {
+            dialogs.alert({
+                message: err,
+                okButtonText: 'Try again.'
+            });
+        });
+    };
+
     exports.backToList = function () {
         frames.topmost().navigate('./views/list/list');
     };
+
 } ());
 

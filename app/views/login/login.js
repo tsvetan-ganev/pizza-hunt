@@ -12,7 +12,7 @@
         isLoading: false
     });
 
-    exports.init = function (args) {
+    exports.onLoaded = function (args) {
         var page = args.object;
         user.set('email', 'ivan@gmail.com');
         user.set('password', 'ivanivanov');

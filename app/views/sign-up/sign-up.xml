@@ -1,4 +1,4 @@
-<Page loaded="init">
+<Page loaded="onLoaded">
 	<ScrollView>
 		<StackLayout cssClass="text-centered">
 			<Label text="Create new account." textWrap="true" cssClass="title" />

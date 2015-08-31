@@ -3,6 +3,7 @@
 #orderedProductsTable {
 	margin-top: 10;
 }
+
 Label {
 	margin-left: 10;
 	margin-right: 10;
@@ -19,10 +20,6 @@ Button {
 
 .th {
 	padding: 10;
-}
-
-.remove-btn {
-	color: darkred;
 }
 
 #total-label, #total-value {
