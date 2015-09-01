@@ -34,18 +34,27 @@
 
     exports.sendOrder = function () {
         // TODO: Add information about the user
-        orderViewModel.send().then(function () {
-            orderViewModel.empty();
+        if (orderViewModel.isEmpty()) {
             dialogs.alert({
-                message: 'Order sent successfully.',
-                okButtonText: 'That\'s awesome!'
+                message: 'You cannot submit an empty order.',
+                okButtonText: 'Okay'
             }).then(navigateToList);
-        }).catch(function (err) {
-            dialogs.alert({
-                message: err,
-                okButtonText: 'Try again.'
+        } else {
+            orderViewModel.send().then(function () {
+                dialogs.alert({
+                    message: 'Your order was successfully sent.',
+                    okButtonText: 'That\'s awesome!'
+                }).then(function () {
+                    orderViewModel.empty();
+                    navigateToList();
+                });
+            }).catch(function (err) {
+                dialogs.alert({
+                    message: err,
+                    okButtonText: 'Try again.'
+                });
             });
-        });
+        }
     };
 
     exports.backToList = function () {

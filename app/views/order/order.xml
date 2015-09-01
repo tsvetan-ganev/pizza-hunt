@@ -7,7 +7,7 @@
 		</ActionBar>
 	</Page.actionBar>
 	<ScrollView>
-		<GridLayout id="orderedProductsTable" rows="auto,auto,auto,auto" columns="*,70,*,50">
+		<GridLayout id="orderedProductsTable" rows="auto,*,auto,auto" columns="*,70,*,50">
 			<Label row="0" col="0" text="Name" cssClass="th text-left bold" />
 			<Label row="0" col="1" text="Qty" cssClass="th text-right bold" />
 			<Label row="0" col="2" text="Subtotal" cssClass="th text-right bold" />
