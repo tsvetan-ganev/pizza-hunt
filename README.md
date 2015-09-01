@@ -21,7 +21,7 @@ Here is how to [Get Started with NativeScript](https://github.com/NativeScript/n
 3. Install globally **json-server** from npm.
    This module is required for getting and posting data from our application.
    ```bash
-   npm install -g json-server
+   $ npm install -g json-server
    ```
 
    I strongly advice you to have a look [here](https://github.com/tsvetan-ganev/pizza-hunt/blob/master/data/README.md)
@@ -57,4 +57,5 @@ Here is how to [Get Started with NativeScript](https://github.com/NativeScript/n
     ```
 
 ## Notes
-I have not tested this application on an iOS device, since I do not have a Macintosh computer.
+- You might need to prefix some commands with ```sudo``` on Linux/Mac.
+- I have not tested this application on an iOS device/emulator, since I do not have a Macintosh computer.
