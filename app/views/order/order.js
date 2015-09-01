@@ -39,7 +39,7 @@
             dialogs.alert({
                 message: 'Order sent successfully.',
                 okButtonText: 'That\'s awesome!'
-            });
+            }).then(navigateToList);
         }).catch(function (err) {
             dialogs.alert({
                 message: err,
@@ -49,6 +49,10 @@
     };
 
     exports.backToList = function () {
+        navigateToList();
+    };
+
+    var navigateToList = function () {
         frames.topmost().navigate('./views/list/list');
     };
 
