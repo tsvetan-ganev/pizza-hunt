@@ -51,7 +51,7 @@ Google's emulator (AVD): 10.0.2.2
 Genymotion's emulator: 10.0.3.2
 ```
 
-Inside our application the URL should look like this ```http://10.0.2.2:8080/pizzas```. Specifying the port number is important.
+The URL should look like this ```http://10.0.2.2:8080/pizzas```. **Specifying the port number is important**.
 
 ## How to access localhost on your Android device?
 Go to your command prompt and check your IP address:
