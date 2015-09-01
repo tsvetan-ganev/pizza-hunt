@@ -73,5 +73,5 @@ IPv4 Address. . . . . . . . . . . : 192.168.0.106
 ...
 ```
 
-Go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address.
+Go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address. Again do not forget to specify the port number: ```http://192.168.0.106:8080```.
 **Using this configuration should work for both devices and emulators at the same time.**
