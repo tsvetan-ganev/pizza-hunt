@@ -23,9 +23,9 @@
 			</StackLayout>
 			<StackLayout orientation="horizontal" row="3" colSpan="3" cssClass="centered">
 				<Image src="res://back" stretch="fill" width="48" height="48" tap="backToListView" cssClass="action-btn" />
-				<Button id="remove-btn" text="-" tap="removeOne" cssClass="bold text-big" />
+				<Button id="remove-btn" text="-" tap="removeOne" cssClass="bold" />
 				<Label text="{{ quantity }}" cssClass="text-big" verticalAlignment="center" />
-				<Button id="add-btn" text="+" tap="addOne" cssClass="bold text-big" />
+				<Button id="add-btn" text="+" tap="addOne" cssClass="bold" />
 				<Image src="res://add_to_order" stretch="fill" width="48" height="48" tap="addToOrder" cssClass="action-btn" />
 			</StackLayout>
 		</GridLayout>

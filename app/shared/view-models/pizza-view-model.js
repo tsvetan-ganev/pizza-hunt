@@ -4,7 +4,7 @@ function PizzaViewModel(options) {
     options = options || {};
 
      var pizza = ({
-        id: options.id || '',
+        _id: options._id || '',
         name: options.name || 'Pizza',
         description: options.description || 'No description.',
         price: options.price || 0.00,

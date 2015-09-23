@@ -21,7 +21,7 @@ function OrderViewModel() {
         }
 
         product = {
-            id: orderedProduct.id,
+            _id: orderedProduct._id,
             name: orderedProduct.name,
             price: orderedProduct.price,
             quantity: orderedProduct.quantity,
@@ -59,7 +59,7 @@ function OrderViewModel() {
 
         orderViewModel.products.forEach(function (p) {
             orderedProducts.push({
-                id: p.id,
+                _id: p._id,
                 name: p.name,
                 qty: p.quantity
             });
@@ -97,7 +97,7 @@ function OrderViewModel() {
             len = orderViewModel.products.length;
 
         for (; i < len; i += 1) {
-            if (product.id === orderViewModel.products.getItem(i).id) {
+            if (product._id === orderViewModel.products.getItem(i)._id) {
                 return i;
             }
         }

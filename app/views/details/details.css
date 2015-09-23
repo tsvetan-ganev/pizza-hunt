@@ -21,7 +21,7 @@ Image {
 	height: 42;
 	background-color: yellowgreen;
 	color: white;
-	margin: 20;
+	
 }
 
 #remove-btn {
@@ -30,7 +30,7 @@ Image {
 	height: 42;
 	background-color: darkred;
 	color: white;
-	margin: 20;
+	
 }
 
 GridLayout {
