@@ -38,7 +38,7 @@ Here is how to [Get Started with NativeScript](https://github.com/NativeScript/n
 
     First start the server.
     ```bash
-    $ json-server data/db.json --watch -p 8080 -d 600
+    $ json-server data/db.json --watch --routes data/routes.json -p 8080 -d 600
     ```
 
     Then run the application on an emulator or a device
