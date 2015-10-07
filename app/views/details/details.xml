@@ -1,33 +1,30 @@
 <Page navigatedTo="navigatedTo">
 	<Page.actionBar>
-		<ActionBar>
+		<ActionBar title="{{ product.name }}">
 			<ActionBar.actionItems>
 				<ActionItem icon="res://cart" tap="goToCart" iosPosition="right" />
 			</ActionBar.actionItems>
 		</ActionBar>
 	</Page.actionBar>
-	<ScrollView>
-		<GridLayout rows="auto, auto, auto, auto, auto" cols="*,*,*">
-			<StackLayout row="0">
-				<Label text="{{ product.name }}" textWrap="true" cssClass="text-centered text-huge bold" />
-				<Image src="{{ product.picUrl }}" stretch="none" cssClass="centered" />
-			</StackLayout>
-			<StackLayout row="1" orientation="horizontal" cssClass="centered">
-				<Label text="{{ product.nett }}" cssClass="text-big bold" />
-				<Label text=" | " cssClass="text-big bold" />
-				<Label text="{{ product.price | money() }}" cssClass="text-big bold" />
-			</StackLayout>
-			<StackLayout row="2">
-				<Label text="{{ product.ingredients | asList() }}" textWrap="true" cssClass="text-centered text-small" />
-				<Label id="description" text="{{ product.description }}" cssClass="text-small text-centered italic" textWrap="true" />
-			</StackLayout>
-			<StackLayout orientation="horizontal" row="3" colSpan="3" cssClass="centered">
-				<Image src="res://back" stretch="fill" width="48" height="48" tap="backToListView" cssClass="action-btn" />
-				<Button id="remove-btn" text="-" tap="removeOne" cssClass="bold" />
-				<Label text="{{ quantity }}" cssClass="text-big" verticalAlignment="center" />
-				<Button id="add-btn" text="+" tap="addOne" cssClass="bold" />
-				<Image src="res://add_to_order" stretch="fill" width="48" height="48" tap="addToOrder" cssClass="action-btn" />
-			</StackLayout>
+	<ScrollView verticalAlignment="center">
+		<GridLayout rows="auto, auto, auto, auto, auto, auto" columns="*,*,*,*,*">
+			<Image row="0" colSpan="5" src="{{ product.picUrl }}" stretch="none" cssClass="centered" />
+
+			<Label row="1" colSpan="5" text="{{ product.ingredients | asList() }}" textWrap="true" cssClass="text-centered text-small" />
+
+			<Label row="2" colSpan="5" text="{{ product.nett }}" cssClass="text-centered text-big" />
+
+			<Label row="3" colSpan="5" id="description" text="{{ product.description }}" cssClass="text-small text-centered italic" textWrap="true" />
+			
+			<Label row="4" colSpan="5" text="{{ product.price | money() }}" cssClass="text-huge bold text-centered" />
+			
+			<Image row="5" col="0" src="res://back" stretch="fill" width="48" height="48" tap="backToListView" cssClass="action-btn" />
+			<Button row="5" col="1" id="remove-btn" text="-" tap="removeOne" cssClass="bold text-big" />
+			<Label row="5" col="2" text="{{ quantity + 'x' }}" verticalAlignment="center" cssClass="text-big text-centered"/>
+			<Button row="5" col="3" id="add-btn" text="+" tap="addOne" cssClass="bold text-big" />
+			<Image row="5" col="4" src="res://add_to_order" stretch="fill" width="48" height="48" tap="addToOrder" cssClass="action-btn" />
 		</GridLayout>
 	</ScrollView>
 </Page>
+
+<!--*,*,*,*,*-->

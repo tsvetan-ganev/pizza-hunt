@@ -1,6 +1,6 @@
 <Page loaded="onLoaded" navigatedTo="navigatedTo">
 	<Page.actionBar>
-		<ActionBar>
+		<ActionBar title="Pizzas">
 			<ActionBar.actionItems>
 				<ActionItem icon="res://cart" tap="goToCart" iosPosition="right" />
 			</ActionBar.actionItems>

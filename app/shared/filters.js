@@ -3,14 +3,14 @@ var filters = (function () {
 
     var filters = {};
 
-    filters.money = function (amount, currency, placeAfter) {
+    filters.money = function (amount, currency, append) {
         amount = amount || 0.00;
         currency = currency || '$';
-        placeAfter = placeAfter;
+        append = append;
 
         amount = amount.toFixed(2);
 
-        return placeAfter ? currency + ' ' + amount : amount + ' ' + currency;
+        return append ? amount + ' ' + currency : currency + ' ' + amount;
     };
 
     filters.asList = function (items) {

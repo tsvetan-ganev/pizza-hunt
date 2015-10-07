@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var frameModule = require('ui/frame'),
+    var frame = require('ui/frame'),
         dialogs = require('ui/dialogs'),
         validation = require('../../shared/validation'),
         createUserViewModel = require('../../shared/view-models/user-view-model'),
@@ -20,13 +20,17 @@
             .then(signIn)
             .catch(registrationError);
     };
+    
+    exports.goBack = function () {
+        frame.topmost().navigate('./views/login/login');
+    }
 
     function signIn() {
         dialogs.alert({
             message: 'Registration was successful.',
             okButtonText: 'Continue'
         }).then(function () {
-            var topmost = frameModule.topmost();
+            var topmost = frame.topmost();
             topmost.navigate('./views/list/list');
         });
     }

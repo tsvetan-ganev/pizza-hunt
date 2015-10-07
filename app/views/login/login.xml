@@ -1,4 +1,7 @@
 <Page loaded="onLoaded">
+	<Page.actionBar>
+		<ActionBar title="Welcome to Pizza Hunt" />
+	</Page.actionBar>
 	<ScrollView>
 		<StackLayout>
 			<StackLayout id="loginScreen">

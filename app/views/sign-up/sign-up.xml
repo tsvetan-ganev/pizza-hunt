@@ -1,7 +1,13 @@
-<Page loaded="onLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded">
+	<Page.actionBar>
+		<ActionBar title="Sign up">
+			<ActionBar.actionItems>
+				<ActionItem text="Back" tap="goBack" />
+			</ActionBar.actionItems>
+		</ActionBar>
+	</Page.actionBar>
 	<ScrollView>
-		<StackLayout cssClass="text-centered">
-			<Label text="Create new account." textWrap="true" cssClass="title" />
+		<StackLayout cssClass="container text-centered">
 			<TextField hint="First name" text="{{ firstName }}" />
 			<TextField hint="Last name" text="{{ lastName }}" />
 			<TextField hint="Email address" text="{{ email }}" keyboardType="email" />

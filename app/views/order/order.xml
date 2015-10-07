@@ -1,36 +1,34 @@
-<Page navigatedTo="navigatedTo" loaded="onLoad">
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="navigatedTo" loaded="onLoad">
 	<Page.actionBar>
-		<ActionBar>
+		<ActionBar title="Shopping Cart">
 			<ActionBar.actionItems>
 				<ActionItem icon="res://pizzas" tap="backToList" iosPosition="right" />
 			</ActionBar.actionItems>
 		</ActionBar>
 	</Page.actionBar>
-	<ScrollView>
-		<GridLayout id="orderedProductsTable" rows="auto,*,auto,auto" columns="*,70,*,50">
-			<Label row="0" col="0" text="Name" cssClass="th text-left bold" />
-			<Label row="0" col="1" text="Qty" cssClass="th text-right bold" />
-			<Label row="0" col="2" text="Subtotal" cssClass="th text-right bold" />
-
-			<Repeater row="1" col="0" colSpan="4" items="{{ products }}">
-				<Repeater.itemsLayout>
+	<GridLayout rows="*, auto" columns="*, *, *, *">
+		<ScrollView row="0" colSpan="4">
+			<Repeater items="{{ products }}">
+				<Repater.itemsLayout>
 					<StackLayout />
-				</Repeater.itemsLayout>
+				</Repater.itemsLayout>
 				<Repeater.itemTemplate>
-					<GridLayout rows="auto" columns="*,70,*,50">
-						<Label col="0" text="{{ name }}" textWrap="true" cssClass="text-left" />
-						<Label col="1" text="{{ quantity }}" cssClass="text-right" />
-						<Label col="2" text="{{ subtotal | money() }}" cssClass="text-right" />
-						<Image col="3" src="res://delete" stretch="fill" tap="removeProduct" width="18" height="18" />
+					<GridLayout rows="auto, auto, auto" columns="*, *, *, *" cssClass="row">
+						<Image src="{{ picUrl }}" stretch="aspectFill" row="0" col="0" rowSpan="2" />
+						<Label text="{{ quantity + 'x' }}" row="0" col="1" />
+						<Label text="{{ name }}" row="0" col="2" colSpan="2" />
+						<Label text="{{ subtotal | money() }}" row="1" col="1" />
+						<Label text="Remove" tap="removeProduct" row="1" col="2" cssClass="remove-btn bold" />
+						<Border row="2" colSpan="4" borderRadius="0" borderWidth="1" borderColor="#888888" />
 					</GridLayout>
 				</Repeater.itemTemplate>
 			</Repeater>
-
-			<Label id="total-label" row="2" col="1" text="Total:" cssClass="text-right bold" />
-			<Label id="total-value" row="2" col="2" text="{{ total | money() }}" cssClass="text-right bold" />
-
-			<Button row="3" col="0" colSpan="2" text="Back" tap="backToList" />
-			<Button row="3" col="2" colSpan="2" text="Send order" tap="sendOrder" />
+		</ScrollView>
+		<GridLayout row="1" colSpan="4" rows="auto, *" columns="*, *, *, *" id="footer" cssClass="centered">
+			<Label row="0" col="0" text="Total: " cssClass="bold text-right" />			
+			<Label row="0" col="1" text="{{ total | money() }}" cssClass="bold" />
+			<Button row="1" col="0" colSpan="2" text="Back" tap="backToList" />
+			<Button row="1" col="2" colSpan="2" text="Send order" tap="sendOrder" />
 		</GridLayout>
-	</ScrollView>
+	</GridLayout>
 </Page>

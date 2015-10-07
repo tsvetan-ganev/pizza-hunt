@@ -18,6 +18,7 @@
         if (detailsViewModel) {
             orderViewModel.add({
                 _id: detailsViewModel.product._id,
+                picUrl: detailsViewModel.product.picUrl,
                 name: detailsViewModel.product.name,
                 price: detailsViewModel.product.price,
                 quantity: detailsViewModel.quantity

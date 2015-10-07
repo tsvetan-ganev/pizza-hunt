@@ -16,6 +16,7 @@
         var page = args.object;
         user.set('email', 'ivan@gmail.com');
         user.set('password', 'ivanivanov');
+        viewModel.isLoading = false;
         page.bindingContext = viewModel;
     };
 

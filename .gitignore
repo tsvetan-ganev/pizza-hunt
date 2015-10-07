@@ -5,5 +5,7 @@ tmp/
 app/typings/
 app/jsconfig.json
 app/tsd.json
+typings/
+tsd.json
 resources/_db.json
 output/

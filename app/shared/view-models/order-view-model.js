@@ -23,6 +23,7 @@ function OrderViewModel() {
         product = {
             _id: orderedProduct._id,
             name: orderedProduct.name,
+            picUrl: orderedProduct.picUrl,
             price: orderedProduct.price,
             quantity: orderedProduct.quantity,
             subtotal: orderedProduct.price * orderedProduct.quantity
