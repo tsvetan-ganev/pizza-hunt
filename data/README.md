@@ -19,14 +19,14 @@ Then start the server:
 
 ## Start
 ```bash
-$ json-server --watch _db.json -p 8080 -d 600
+$ json-server --watch _db.json --routes routes.json -p 8080 -d 600
 ```
-The ```-p 8080 ``` specifies which port we want our server to use (the default is 3000) and the ```-d 600``` simulates a 600 ms delay, which is useful when debugging ActivityIndicator animations.
+```--routes routes.json``` specifies that a route file should be used to configure the default routings for the server. All requests are set to begin with the ```/api/``` prefix, since most of the real web APIs are also configured this way. The ```-p 8080 ``` specifies which port we want our server to use (the default is 3000) and the ```-d 600``` simulates a 600 ms delay, which is useful when debugging ActivityIndicator animations.
 
 The *db.json* file itself contains our application data - users, pizzas and orders.
-You can access the pizzas list by navigating to ```http://localhost:8080/pizzas``` and the users list by navigating to ```http://localhost:8080/users```.
+You can access the pizzas list by navigating to ```http://localhost:8080/api/pizzas``` and the users list by navigating to ```http://localhost:8080/api/users```.
 
-You can even query for specific entries - ```http://localhost:8080/users?firstName=Ivan``` which returns the following JSON:
+You can even query for specific entries - ```http://localhost:8080/api/users?firstName=Ivan``` which returns the following JSON:
 
 ```json
 [
@@ -42,7 +42,7 @@ You can even query for specific entries - ```http://localhost:8080/users?firstNa
 If you want to learn about more advanced features, please visit **json-server**'s official [documentation](https://github.com/typicode/json-server/blob/master/README.md). 
 
 ## How to access localhost in your Android emulator?
-As you might imagine, navigating to ```http://localhost:8080/pizzas``` in your Android emulator's browser will result in an error.
+As you might imagine, navigating to ```http://localhost:8080/api/pizzas``` in your Android emulator's browser will result in an error.
 
 The correct way to access localhost is to use the following IP addresses inside your application:
 
@@ -51,9 +51,9 @@ Google's emulator (AVD): 10.0.2.2
 Genymotion's emulator: 10.0.3.2
 ```
 
-The URL should look like this ```http://10.0.2.2:8080```. **Specifying the port number is important**.
+The URL should look like this ```http://10.0.2.2:8080/api/```. **Specifying the port number is important**.
 
-Now go to app/shared/config.js and set remoteServiceUrl to be equal to the displayed IP address. 
+Now go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address. 
 
 ## How to access localhost on your Android device?
 Go to your command prompt and check your IP address:
@@ -75,5 +75,5 @@ IPv4 Address. . . . . . . . . . . : 192.168.0.106
 ...
 ```
 
-Go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address. Again do not forget to specify the port number: ```http://192.168.0.106:8080```.
+Go to ```app/shared/config.js``` and set ```remoteServiceUrl``` to be equal to the displayed IP address. Again do not forget to specify the port number: ```http://192.168.0.106:8080/api/```.
 **Using this configuration should work for both devices and emulators at the same time.**
