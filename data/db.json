@@ -1,7 +1,7 @@
 {
   "pizzas": [
     {
-      "id": "55d11054746f1b10172b2299",
+      "_id": "55d11054746f1b10172b2299",
       "name": "Margarita",
       "description": "A light pizza with olive oil, garlic, fresh basil, fresh tomatoes, mozzarella and Parmesan cheeses. Perfect with a beer on a hot summer night.",
       "price": 7.45,
@@ -17,10 +17,10 @@
       "picUrl": "res://pizza_margarita"
     },
     {
-      "id": "55d11083746f1b10172b229a",
+      "_id": "55d11083746f1b10172b229a",
       "name": "Vegetariana",
       "description": "Specially made for hipster vegan parties.",
-      "price": 5.30,
+      "price": 5.3,
       "nett": "900 g",
       "ingredients": [
         "tomatoes",
@@ -31,7 +31,7 @@
       "picUrl": "res://pizza_vegetariana"
     },
     {
-      "id": "55d11091746f1b10172b229b",
+      "_id": "55d11091746f1b10172b229b",
       "name": "Capricciosa",
       "description": "Mozzarella cheese, Italian baked ham, mushroom, artichoke and tomato.",
       "price": 8.45,
@@ -46,10 +46,10 @@
       "picUrl": "res://pizza_capricciosa"
     },
     {
-      "id": "55d11091746f1b10172b229c",
+      "_id": "55d11091746f1b10172b229c",
       "name": "Napoletana",
       "description": "Made with fresh tomatoes and classic Italian Mozzarella cheese.",
-      "price": 6.10,
+      "price": 6.1,
       "nett": "500 g",
       "ingredients": [
         "tomatoes",
@@ -59,7 +59,7 @@
       "picUrl": "res://pizza_napoletana"
     },
     {
-      "id": "55d11091746f1b10172b229d",
+      "_id": "55d11091746f1b10172b229d",
       "name": "Quattro Formaggi",
       "description": "The more of the cheeze, the tastier the pizza.",
       "price": 7.15,
@@ -75,10 +75,10 @@
       "picUrl": "res://pizza_quattro"
     },
     {
-      "id": "55d11091746f1b10172b229e",
+      "_id": "55d11091746f1b10172b229e",
       "name": "Pepperoni",
       "description": "Pepperoni, pepperoni and more pepperoni!",
-      "price": 6.80,
+      "price": 6.8,
       "nett": "590 g",
       "ingredients": [
         "tomatoes",
@@ -90,7 +90,7 @@
       "picUrl": "res://pizza_pepperoni"
     },
     {
-      "id": "55d11091746f1b10172b229f",
+      "_id": "55d11091746f1b10172b229f",
       "name": "Calzone",
       "description": "Many tasty things are hidden within.",
       "price": 5.75,
@@ -106,10 +106,10 @@
       "picUrl": "res://pizza_calzone"
     },
     {
-      "id": "55d11091746f1b10172b22a1",
+      "_id": "55d11091746f1b10172b22a1",
       "name": "Hawaii",
       "description": "Despite its name, Hawaiian pizza is not a Hawaiian invention; it is Canadian.",
-      "price": 6.60,
+      "price": 6.6,
       "nett": "640 g",
       "ingredients": [
         "tomatoes",
@@ -150,5 +150,6 @@
       "password": "mariailieva"
     }
   ],
-  "orders": []
+  "orders": [
+  ]
 }
