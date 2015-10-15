@@ -41,19 +41,18 @@
                 okButtonText: 'Okay'
             }).then(navigateToList);
         } else {
-            orderViewModel.send().then(function () {
-                dialogs.alert({
-                    message: 'Your order was successfully sent.',
-                    okButtonText: 'That\'s awesome!'
-                }).then(function () {
-                    orderViewModel.empty();
-                    navigateToList();
-                });
-            }).catch(function (err) {
-                dialogs.alert({
-                    message: err,
-                    okButtonText: 'Try again.'
-                });
+            dialogs.confirm({
+                title: 'Confirm your purchase',
+                message: 'Do you want to send your order?',
+                okButtonText: 'Yeah!',
+                cancelButtonText: 'Nope.',
+            }).then(function (confirmed) {
+                if (confirmed) {
+                    orderViewModel.send().then(function() {
+                       orderViewModel.empty();
+                       navigateToList(); 
+                    });
+                }
             });
         }
     };
