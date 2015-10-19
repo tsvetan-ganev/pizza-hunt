@@ -3,6 +3,7 @@ function UserViewModel(info) {
 
     var observableModule = require('data/observable'),
         http = require('http'),
+        appSettings = require('application-settings'),
         config = require('../../shared/config'),
         user;
 
@@ -93,6 +94,15 @@ function UserViewModel(info) {
                 reject('The newly created user could not be saved due to connection problems.');
             });
         });
+    };
+
+    /**
+     * Saves the registered user login data to the device.
+     */
+    user.saveCredentialsLocally = function () {
+        appSettings.setBoolean('isRegistered', true);
+        appSettings.setString('email', user.get('email'));
+        appSettings.setString('password', user.get('password'));
     };
 
     /**

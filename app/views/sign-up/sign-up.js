@@ -20,16 +20,17 @@
             .then(signIn)
             .catch(registrationError);
     };
-    
+
     exports.goBack = function () {
         frame.topmost().navigate('./views/login/login');
-    }
+    };
 
     function signIn() {
         dialogs.alert({
             message: 'Registration was successful.',
             okButtonText: 'Continue'
         }).then(function () {
+            user.saveCredentialsLocally();
             var topmost = frame.topmost();
             topmost.navigate('./views/list/list');
         });

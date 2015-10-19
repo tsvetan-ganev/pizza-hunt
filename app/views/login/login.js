@@ -4,6 +4,7 @@
     var dialogs = require('ui/dialogs'),
         frames = require('ui/frame'),
         observable = require('data/observable'),
+        appSettings = require('application-settings'),
         createUserViewModel = require('../../shared/view-models/user-view-model');
 
     var user = createUserViewModel();
@@ -14,8 +15,10 @@
 
     exports.onLoaded = function (args) {
         var page = args.object;
-        user.set('email', 'ivan@gmail.com');
-        user.set('password', 'ivanivanov');
+
+        user.set('email', appSettings.getString('email'));
+        user.set('password', appSettings.getString('password'));
+
         viewModel.isLoading = false;
         page.bindingContext = viewModel;
     };
@@ -31,7 +34,12 @@
         frames.topmost().navigate('./views/sign-up/sign-up');
     };
 
+    exports.goToTest = function () {
+        frames.topmost().navigate('./views/test/test');
+    };
+
     function signIn() {
+        user.saveCredentialsLocally();
         viewModel.isLoading = false;
         frames.topmost().navigate('./views/list/list');
     }
