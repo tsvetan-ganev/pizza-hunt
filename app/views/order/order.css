@@ -22,10 +22,6 @@ GridLayout {
 	color: red;
 }
 
-.row {
-	border-bottom: 1 solid green;
-}
-
 Image {
   border-radius: 100;
   width: 56;

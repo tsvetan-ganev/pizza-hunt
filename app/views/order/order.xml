@@ -13,20 +13,20 @@
 					<StackLayout />
 				</Repater.itemsLayout>
 				<Repeater.itemTemplate>
-					<GridLayout rows="auto, auto, auto" columns="*, *, *, *" cssClass="row">
+					<GridLayout rows="auto, auto, auto" columns="*, *, *, *">
 						<Image src="{{ picUrl }}" stretch="aspectFill" row="0" col="0" rowSpan="2" />
 						<Label text="{{ quantity + 'x' }}" row="0" col="1" />
 						<Label text="{{ name }}" row="0" col="2" colSpan="2" />
 						<Label text="{{ subtotal | money() }}" row="1" col="1" />
-						<Label text="Remove" tap="removeProduct" row="1" col="2" colSpan="2" cssClass="remove-btn bold" />
+						<Label text="Remove" tap="removeProduct" row="1" col="2" colSpan="2" class="remove-btn bold" />
 						<Border row="2" colSpan="4" borderRadius="0" borderWidth="1" borderColor="#888888" />
 					</GridLayout>
 				</Repeater.itemTemplate>
 			</Repeater>
 		</ScrollView>
-		<GridLayout row="1" colSpan="4" rows="auto, *" columns="*, *, *, *" id="footer" cssClass="centered">
-			<Label row="0" col="0" text="Total: " cssClass="bold text-right" />			
-			<Label row="0" col="1" text="{{ total | money() }}" cssClass="bold" />
+		<GridLayout row="1" colSpan="4" rows="auto, *" columns="*, *, *, *" id="footer" class="centered">
+			<Label row="0" col="0" text="Total: " class="bold text-right" />			
+			<Label row="0" col="1" text="{{ total | money() }}" class="bold" />
 			<Button row="1" col="0" colSpan="2" text="Back" tap="backToList" />
 			<Button row="1" col="2" colSpan="2" text="Send order" tap="sendOrder" />
 		</GridLayout>
