@@ -7,7 +7,7 @@
 		</ActionBar>
 	</Page.actionBar>
 	<ScrollView>
-		<StackLayout cssClass="container text-centered">
+		<StackLayout class="container text-centered">
 			<TextField hint="First name" text="{{ firstName }}" />
 			<TextField hint="Last name" text="{{ lastName }}" />
 			<TextField hint="Email address" text="{{ email }}" keyboardType="email" />

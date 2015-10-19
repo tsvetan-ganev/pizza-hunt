@@ -1,0 +1,6 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
+  <StackLayout>
+    <Label text="{{ email }}" textWrap="true" />
+    <Label text="{{ password }}" textWrap="true" />
+  </StackLayout>
+</Page>
