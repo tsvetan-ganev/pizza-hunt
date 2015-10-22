@@ -17,7 +17,7 @@
     exports.register = function () {
         validateSignUpForm()
             .then(user.register)
-            .then(signIn)
+            .then(returnToLoginPage)
             .catch(registrationError);
     };
 
@@ -25,14 +25,13 @@
         frame.topmost().navigate('./views/login/login');
     };
 
-    function signIn() {
+    function returnToLoginPage() {
         dialogs.alert({
             message: 'Registration was successful.',
             okButtonText: 'Continue'
         }).then(function () {
-            user.saveCredentialsLocally();
-            var topmost = frame.topmost();
-            topmost.navigate('./views/list/list');
+            user.saveCredentialsLocally(); 
+            frame.topmost().navigate('./views/login/login');
         });
     }
 

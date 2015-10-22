@@ -1,5 +1,9 @@
-var app = require('application');
-var filters = require('./shared/filters');
+var app = require('application'),
+    filters = require('./shared/filters');
+    
+global.USER_ID = '';
+global.USER_NAME = '';
+global.USER_EMAIL = ''
 
 app.resources.money = filters.money;
 app.resources.asList = filters.asList;

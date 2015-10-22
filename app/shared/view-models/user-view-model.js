@@ -13,6 +13,7 @@ function UserViewModel(info) {
      * Constructs an observable object of type User.
      */
     user = new observableModule.Observable({
+        _id: info._id || '',
         email: info.email || '',
         firstName: info.firstName || '',
         lastName: info.lastName || '',
@@ -36,6 +37,10 @@ function UserViewModel(info) {
                         data.forEach(function (registeredUser) {
                             if (user.get('email') === registeredUser.email &&
                                 user.get('password') === registeredUser.password) {
+                                user.set('_id', registeredUser._id);
+                                user.set('firstName', registeredUser.firstName);
+                                user.set('lastName', registeredUser.lastName);
+                                user.set('email', registeredUser.email);
                                 resolve();
                                 return;
                             } else {
@@ -62,7 +67,7 @@ function UserViewModel(info) {
     user.register = function () {
         return new Promise(function (resolve, reject) {
             checkIfUserExists()
-                .then(saveRegisteredUser)
+                .then(createRegisteredUser)
                 .then(resolve)
                 .catch(function (err) {
                     reject(err);
@@ -73,7 +78,7 @@ function UserViewModel(info) {
     /**
      * Saves the information of a user into the database.
      */
-    var saveRegisteredUser = function () {
+    var createRegisteredUser = function () {
         return new Promise(function (resolve, reject) {
             http.request({
                 url: config.remoteServiceUrl + 'users',

@@ -1,3 +1,6 @@
+/* global USER_EMAIL */
+/* global USER_NAME */
+/* global USER_ID */
 (function () {
     'use strict';
 
@@ -40,6 +43,10 @@
 
     function signIn() {
         user.saveCredentialsLocally();
+        USER_ID = user._id;
+        USER_NAME = user.firstName + ' ' + user.lastName;
+        USER_EMAIL = user.email;
+        
         viewModel.isLoading = false;
         frames.topmost().navigate('./views/list/list');
     }

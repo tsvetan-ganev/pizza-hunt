@@ -9,7 +9,8 @@ function OrderViewModel() {
 
     orderViewModel = new observableModule.Observable({
         products: createPizzaListViewModel([]),
-        total: 0.00
+        total: 0.00,
+        user: {}
     });
 
     orderViewModel.add = function (orderedProduct) {
@@ -57,7 +58,8 @@ function OrderViewModel() {
 
     orderViewModel.send = function () {
         var orderedProducts = [];
-
+        var currentUser = orderViewModel.user;
+        
         orderViewModel.products.forEach(function (p) {
             orderedProducts.push({
                 _id: p._id,
@@ -71,7 +73,8 @@ function OrderViewModel() {
                 url: config.remoteServiceUrl + 'orders',
                 method: 'POST',
                 content: JSON.stringify({
-                    orderedProducts: orderedProducts
+                    orderedProducts: orderedProducts,
+                    user: currentUser
                 }),
                 headers: {
                     'Content-Type': 'application/json'

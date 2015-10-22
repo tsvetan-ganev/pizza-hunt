@@ -1,3 +1,6 @@
+/* global USER_EMAIL */
+/* global USER_NAME */
+/* global USER_ID */
 (function () {
     'use strict';
 
@@ -11,8 +14,15 @@
     detailsViewModel = {};
 
     exports.navigatedTo = function (args) {
+        orderViewModel.user = {
+            _id: USER_ID,
+            name: USER_NAME,
+            email: USER_EMAIL
+        };
+        
         var page = args.object;
         page.bindingContext = orderViewModel;
+
         detailsViewModel = page.navigationContext;
 
         if (detailsViewModel) {
@@ -48,9 +58,9 @@
                 cancelButtonText: 'Nope.',
             }).then(function (confirmed) {
                 if (confirmed) {
-                    orderViewModel.send().then(function() {
-                       orderViewModel.empty();
-                       navigateToList(); 
+                    orderViewModel.send().then(function () {
+                        orderViewModel.empty();
+                        navigateToList();
                     });
                 }
             });
